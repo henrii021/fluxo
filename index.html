@@ -32,7 +32,7 @@
   .btn-primary:hover { background: #e64400; transform: translateY(-2px); box-shadow: 0 16px 40px rgba(255,77,0,0.3); }
   .btn-secondary { color: var(--off-white); font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 400; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; opacity: 0.6; transition: opacity 0.2s; }
   .btn-secondary:hover { opacity: 1; }
-  .hero-scroll { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.4; z-index: 1; animation: fadeUp 1s 0.6s ease both; }
+  .hero-scroll { position: absolute; bottom: 40px; left: 0; right: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; opacity: 0.4; z-index: 1; animation: fadeUp 1s 0.6s ease both; }
   .hero-scroll span { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
   .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--off-white), transparent); animation: scrollLine 2s infinite; }
   @keyframes scrollLine { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
@@ -184,9 +184,71 @@
     <div class="section-label">Pacotes</div>
     <h2 class="section-title">Escolha o plano<br/>certo para <em>você.</em></h2>
     <div class="pricing-grid">
-      <div class="plan"><div class="plan-tag">Básico</div><div class="plan-name">Starter</div><div class="plan-price">R$900</div><div class="plan-period">/mês · sem fidelidade</div><div class="plan-divider"></div><div class="plan-features"><div class="plan-feature">12 posts no feed</div><div class="plan-feature">Legendas otimizadas</div><div class="plan-feature">4 stories por semana</div><div class="plan-feature">Arte com identidade visual</div></div><a href="#contato" class="plan-btn plan-btn-outline">Quero esse plano</a></div>
-      <div class="plan featured"><div class="plan-tag">⭐ Mais escolhido</div><div class="plan-name">Padrão</div><div class="plan-price">R$1.800</div><div class="plan-period">/mês · sem fidelidade</div><div class="plan-divider"></div><div class="plan-features"><div class="plan-feature">20 posts no feed</div><div class="plan-feature">4 reels roteirizados</div><div class="plan-feature">Stories diários</div><div class="plan-feature">Estratégia de conteúdo</div><div class="plan-feature">Relatório mensal</div></div><a href="#contato" class="plan-btn plan-btn-solid">Quero esse plano</a></div>
-      <div class="plan"><div class="plan-tag">Premium</div><div class="plan-name">Escala</div><div class="plan-price">R$3.500</div><div class="plan-period">/mês · sem fidelidade</div><div class="plan-divider"></div><div class="plan-features"><div class="plan-feature">30+ posts no feed</div><div class="plan-feature">8 reels roteirizados</div><div class="plan-feature">Copy de anúncios</div><div class="plan-feature">Estratégia completa</div><div class="plan-feature">Reunião mensal de resultado</div></div><a href="#contato" class="plan-btn plan-btn-outline">Quero esse plano</a></div>
+      <div class="plan">
+        <div class="plan-tag">🔥 Oferta de lançamento</div>
+        <div class="plan-name">Base</div>
+        <div style="display:flex;align-items:center;gap:10px;margin-top:14px;">
+          <div class="plan-price">R$599</div>
+          <div style="text-decoration:line-through;font-size:18px;color:#444;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;">R$900</div>
+        </div>
+        <div class="plan-period">/mês · sem fidelidade</div>
+        <div style="background:rgba(255,77,0,0.1);border:1px solid rgba(255,77,0,0.3);border-radius:8px;padding:8px 12px;margin-bottom:20px;">
+          <p style="font-size:11px;color:#FF4D00;margin:0;font-weight:600;">Apenas 5 vagas nesse valor</p>
+          <p style="font-size:10px;color:#888880;margin:4px 0 0;" id="timer-basic">Calculando...</p>
+        </div>
+        <div class="plan-divider"></div>
+        <div class="plan-features">
+          <div class="plan-feature">12 posts no feed</div>
+          <div class="plan-feature">Legendas otimizadas</div>
+          <div class="plan-feature">4 stories por semana</div>
+          <div class="plan-feature">Arte com identidade visual</div>
+        </div>
+        <a href="#contato" class="plan-btn plan-btn-outline">Garantir minha vaga →</a>
+      </div>
+      <div class="plan featured">
+        <div class="plan-tag">⭐ Mais escolhido</div>
+        <div class="plan-name">Fluxo</div>
+        <div style="display:flex;align-items:center;gap:10px;margin-top:14px;">
+          <div class="plan-price">R$1.199</div>
+          <div style="text-decoration:line-through;font-size:18px;color:rgba(255,255,255,0.35);font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;">R$1.800</div>
+        </div>
+        <div class="plan-period">/mês · sem fidelidade</div>
+        <div style="background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 12px;margin-bottom:20px;">
+          <p style="font-size:11px;color:#fff;margin:0;font-weight:600;">Apenas 3 vagas nesse valor</p>
+          <p style="font-size:10px;color:rgba(255,255,255,0.6);margin:4px 0 0;" id="timer-mid">Calculando...</p>
+        </div>
+        <div class="plan-divider"></div>
+        <div class="plan-features">
+          <div class="plan-feature">20 posts no feed</div>
+          <div class="plan-feature">4 reels roteirizados</div>
+          <div class="plan-feature">Stories diários</div>
+          <div class="plan-feature">Estratégia de conteúdo</div>
+          <div class="plan-feature">Relatório mensal</div>
+        </div>
+        <a href="#contato" class="plan-btn plan-btn-solid">Garantir minha vaga →</a>
+      </div>
+      <div class="plan">
+        <div class="plan-tag">🔥 Oferta de lançamento</div>
+        <div class="plan-name">Máximo</div>
+        <div style="display:flex;align-items:center;gap:10px;margin-top:14px;">
+          <div class="plan-price">R$2.999</div>
+          <div style="text-decoration:line-through;font-size:18px;color:#444;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;">R$3.500</div>
+        </div>
+        <div class="plan-period">/mês · sem fidelidade</div>
+        <div style="background:rgba(255,77,0,0.1);border:1px solid rgba(255,77,0,0.3);border-radius:8px;padding:8px 12px;margin-bottom:20px;">
+          <p style="font-size:11px;color:#FF4D00;margin:0;font-weight:600;">Apenas 2 vagas nesse valor</p>
+          <p style="font-size:10px;color:#888880;margin:4px 0 0;" id="timer-premium">Calculando...</p>
+        </div>
+        <div class="plan-divider"></div>
+        <div class="plan-features">
+          <div class="plan-feature">30+ posts no feed</div>
+          <div class="plan-feature">8 reels roteirizados</div>
+          <div class="plan-feature">Copy de anúncios</div>
+          <div class="plan-feature">Estratégia completa</div>
+          <div class="plan-feature">Reunião mensal de resultado</div>
+        </div>
+        <a href="#contato" class="plan-btn plan-btn-outline">Garantir minha vaga →</a>
+      </div>
     </div>
   </div>
 </div>
@@ -210,6 +272,38 @@
   document.querySelectorAll('a, button').forEach(el => { el.addEventListener('mouseenter', () => { cursor.style.transform = 'translate(-50%,-50%) scale(2.5)'; ring.style.transform = 'translate(-50%,-50%) scale(1.5)'; }); el.addEventListener('mouseleave', () => { cursor.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.transform = 'translate(-50%,-50%) scale(1)'; }); });
   const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; } }); }, { threshold: 0.1 });
   document.querySelectorAll('.service-card, .pain-item, .plan, .num-item').forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(30px)'; el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; observer.observe(el); });
+
+  // Countdown timer — 72 horas a partir do primeiro acesso
+  function startTimer() {
+    const key = 'fluxo_promo_end';
+    let end = localStorage.getItem(key);
+    if (!end) {
+      end = Date.now() + 72 * 60 * 60 * 1000;
+      localStorage.setItem(key, end);
+    }
+    function update() {
+      const diff = end - Date.now();
+      if (diff <= 0) {
+        ['timer-basic','timer-mid','timer-premium'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = 'Promoção encerrada';
+        });
+        return;
+      }
+      const h = Math.floor(diff / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      const txt = `Encerra em ${h}h ${m}m ${s}s`;
+      ['timer-basic','timer-mid','timer-premium'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = txt;
+      });
+      setTimeout(update, 1000);
+    }
+    update();
+  }
+  startTimer();
+
 </script>
 </body>
 </html>
