@@ -108,6 +108,11 @@
   .footer-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
   .footer-logo span { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; font-weight: 700; color: var(--off-white); }
   @media (max-width: 768px) { nav { padding: 16px 20px; } section { padding: 72px 20px; } .pain-grid, .services-grid, .pricing-grid { grid-template-columns: 1fr; } .numbers { grid-template-columns: 1fr; } .num-item { border-right: none; border-bottom: 1px solid #1e1e1e; } .num-item:last-child { border-bottom: none; } footer { flex-direction: column; text-align: center; padding: 32px 20px; } .cta-final { padding: 72px 20px; } .pain-inner, .pricing-inner { padding: 0 20px; } }
+
+    @media (max-width: 768px) {
+      #sobre > div { grid-template-columns: 1fr !important; gap: 32px !important; }
+      #faq div[style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
+    }
 </style>
 </head>
 <body>
@@ -182,7 +187,17 @@
 <div class="pricing" id="pacotes">
   <div class="pricing-inner">
     <div class="section-label">Pacotes</div>
-    <h2 class="section-title">Escolha o plano<br/>certo para <em>você.</em></h2>
+    <h2 class="section-title">Invista no seu<br/>negócio <em>agora.</em></h2>
+    <div style="display:flex;align-items:center;gap:12px;margin-top:16px;flex-wrap:wrap;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,77,0,0.1);border:1px solid rgba(255,77,0,0.3);border-radius:100px;padding:8px 16px;">
+        <div style="width:8px;height:8px;border-radius:50%;background:#FF4D00;animation:pulse 2s infinite;flex-shrink:0;"></div>
+        <p style="font-size:13px;font-weight:600;color:#FF4D00;margin:0;">Valores de lançamento — por tempo limitado</p>
+      </div>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:#0f0f0f;border:1px solid #1e1e1e;border-radius:100px;padding:8px 16px;">
+        <p style="font-size:13px;color:var(--gray);margin:0;">Encerra em:</p>
+        <p style="font-size:13px;font-weight:700;color:var(--off-white);margin:0;font-family:'Plus Jakarta Sans',sans-serif;" id="main-timer">--:--:--</p>
+      </div>
+    </div>
     <div class="pricing-grid">
       <div class="plan">
         <div class="plan-tag">🔥 Oferta de lançamento</div>
@@ -192,9 +207,12 @@
           <div style="text-decoration:line-through;font-size:18px;color:#444;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;">R$900</div>
         </div>
         <div class="plan-period">/mês · sem fidelidade</div>
-        <div style="background:rgba(255,77,0,0.1);border:1px solid rgba(255,77,0,0.3);border-radius:8px;padding:8px 12px;margin-bottom:20px;">
-          <p style="font-size:11px;color:#FF4D00;margin:0;font-weight:600;">Apenas 5 vagas nesse valor</p>
-          <p style="font-size:10px;color:#888880;margin:4px 0 0;" id="timer-basic">Calculando...</p>
+        <div style="background:#0f0f0f;border:1px solid #1e1e1e;border-radius:10px;padding:12px 14px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div style="width:6px;height:6px;border-radius:50%;background:#FF4D00;animation:pulse 2s infinite;flex-shrink:0;"></div>
+            <p style="font-size:12px;color:var(--off-white);margin:0;font-weight:500;">5 vagas disponíveis</p>
+          </div>
+          <p style="font-size:11px;color:#FF4D00;margin:0;font-weight:600;" id="timer-basic">--:--:--</p>
         </div>
         <div class="plan-divider"></div>
         <div class="plan-features">
@@ -213,9 +231,12 @@
           <div style="text-decoration:line-through;font-size:18px;color:rgba(255,255,255,0.35);font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;">R$1.800</div>
         </div>
         <div class="plan-period">/mês · sem fidelidade</div>
-        <div style="background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 12px;margin-bottom:20px;">
-          <p style="font-size:11px;color:#fff;margin:0;font-weight:600;">Apenas 3 vagas nesse valor</p>
-          <p style="font-size:10px;color:rgba(255,255,255,0.6);margin:4px 0 0;" id="timer-mid">Calculando...</p>
+        <div style="background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:12px 14px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div style="width:6px;height:6px;border-radius:50%;background:#fff;animation:pulse 2s infinite;flex-shrink:0;"></div>
+            <p style="font-size:12px;color:#fff;margin:0;font-weight:500;">3 vagas disponíveis</p>
+          </div>
+          <p style="font-size:11px;color:#fff;margin:0;font-weight:600;" id="timer-mid">--:--:--</p>
         </div>
         <div class="plan-divider"></div>
         <div class="plan-features">
@@ -235,9 +256,12 @@
           <div style="text-decoration:line-through;font-size:18px;color:#444;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;">R$3.500</div>
         </div>
         <div class="plan-period">/mês · sem fidelidade</div>
-        <div style="background:rgba(255,77,0,0.1);border:1px solid rgba(255,77,0,0.3);border-radius:8px;padding:8px 12px;margin-bottom:20px;">
-          <p style="font-size:11px;color:#FF4D00;margin:0;font-weight:600;">Apenas 2 vagas nesse valor</p>
-          <p style="font-size:10px;color:#888880;margin:4px 0 0;" id="timer-premium">Calculando...</p>
+        <div style="background:#0f0f0f;border:1px solid #1e1e1e;border-radius:10px;padding:12px 14px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div style="width:6px;height:6px;border-radius:50%;background:#FF4D00;animation:pulse 2s infinite;flex-shrink:0;"></div>
+            <p style="font-size:12px;color:var(--off-white);margin:0;font-weight:500;">2 vagas disponíveis</p>
+          </div>
+          <p style="font-size:11px;color:#FF4D00;margin:0;font-weight:600;" id="timer-premium">--:--:--</p>
         </div>
         <div class="plan-divider"></div>
         <div class="plan-features">
@@ -252,6 +276,139 @@
     </div>
   </div>
 </div>
+
+<!-- SOBRE -->
+<section id="sobre" style="padding: 100px 48px; max-width: 1100px; margin: 0 auto;">
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+    <div>
+      <div class="section-label">Quem está por trás da Fluxo</div>
+      <h2 class="section-title">Oi, eu sou o<br/><em>Pedro.</em></h2>
+      <p style="font-size: 16px; color: var(--gray); line-height: 1.8; margin: 0 0 24px;">Sou especialista em conteúdo e social media com foco em resultados reais para pequenos negócios. Fundei a Fluxo com um objetivo simples: fazer o seu negócio aparecer onde o seu cliente está — sem complicação e sem você precisar entender nada de marketing.</p>
+      <p style="font-size: 16px; color: var(--gray); line-height: 1.8; margin: 0 0 32px;">Trabalho com estratégia, criatividade e muita atenção aos detalhes. Cada cliente da Fluxo recebe atenção personalizada — não somos uma fábrica de conteúdo genérico.</p>
+      <div style="display: flex; gap: 32px;">
+        <div><p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: var(--orange); margin: 0; line-height: 1;">+2</p><p style="font-size: 13px; color: var(--gray); margin: 4px 0 0;">anos de experiência</p></div>
+        <div><p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: var(--orange); margin: 0; line-height: 1;">RJ</p><p style="font-size: 13px; color: var(--gray); margin: 4px 0 0;">baseado no Rio</p></div>
+        <div><p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: var(--orange); margin: 0; line-height: 1;">100%</p><p style="font-size: 13px; color: var(--gray); margin: 4px 0 0;">foco no resultado</p></div>
+      </div>
+    </div>
+    <div style="background: #0f0f0f; border: 1px solid #1e1e1e; border-radius: 20px; padding: 40px; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: -40px; right: -40px; width: 160px; height: 160px; border-radius: 50%; border: 1px solid rgba(255,77,0,0.1);"></div>
+      <div style="position: absolute; bottom: -30px; left: -30px; width: 120px; height: 120px; border-radius: 50%; border: 1px solid rgba(255,77,0,0.08);"></div>
+      <div style="width: 72px; height: 72px; border-radius: 50%; background: #FF4D00; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+        <svg width="36" height="22" viewBox="0 0 50 28" fill="none"><path d="M4 14 Q14 2 25 14 Q36 26 46 14" stroke="#f5f5f0" stroke-width="3.5" stroke-linecap="round"/><circle cx="46" cy="14" r="4" fill="#f5f5f0"/></svg>
+      </div>
+      <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 700; color: var(--off-white); margin: 0 0 12px; line-height: 1.3;">Cada cliente é tratado como único.</p>
+      <p style="font-size: 14px; color: var(--gray); line-height: 1.7; margin: 0 0 24px;">Na Fluxo você não é um número. Você fala diretamente comigo, acompanha cada entrega e tem total transparência do processo.</p>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 10px;"><div style="width: 6px; height: 6px; border-radius: 50%; background: #FF4D00; flex-shrink: 0;"></div><p style="font-size: 14px; color: var(--off-white); margin: 0;">Comunicação direta e sem enrolação</p></div>
+        <div style="display: flex; align-items: center; gap: 10px;"><div style="width: 6px; height: 6px; border-radius: 50%; background: #FF4D00; flex-shrink: 0;"></div><p style="font-size: 14px; color: var(--off-white); margin: 0;">Entregas pontuais todo mês</p></div>
+        <div style="display: flex; align-items: center; gap: 10px;"><div style="width: 6px; height: 6px; border-radius: 50%; background: #FF4D00; flex-shrink: 0;"></div><p style="font-size: 14px; color: var(--off-white); margin: 0;">Resultado mensurável desde o primeiro mês</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<div style="background: #0d0d0d; padding: 100px 0;">
+  <div style="max-width: 1100px; margin: 0 auto; padding: 0 48px;">
+    <div class="section-label">O que dizem nossos clientes</div>
+    <h2 class="section-title">Resultados que<br/><em>falam por si.</em></h2>
+    <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 52px;">
+
+      <div style="background: #0a0a0a; border: 1px solid #1e1e1e; border-radius: 18px; padding: 32px; position: relative; transition: all 0.3s;" onmouseover="this.style.borderColor='rgba(255,77,0,0.3)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#1e1e1e';this.style.transform='translateY(0)'">
+        <div style="display: flex; gap: 4px; margin-bottom: 20px;">
+          <span style="color: #FF4D00; font-size: 16px;">★★★★★</span>
+        </div>
+        <p style="font-size: 15px; color: var(--off-white); line-height: 1.7; margin: 0 0 24px; font-style: italic;">"Em menos de 30 dias meu Instagram ganhou vida. As artes são profissionais e o conteúdo fala exatamente com meu público. Recomendo muito."</p>
+        <div style="display: flex; align-items: center; gap: 12px; padding-top: 20px; border-top: 1px solid #1e1e1e;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: #FF4D00; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><p style="font-size: 16px; margin: 0;">🍪</p></div>
+          <div><p style="font-size: 14px; font-weight: 600; color: var(--off-white); margin: 0;">Doce Valente</p><p style="font-size: 12px; color: var(--gray); margin: 2px 0 0;">Confeitaria · Rio de Janeiro</p></div>
+        </div>
+      </div>
+
+      <div style="background: #FF4D00; border: 1px solid #FF4D00; border-radius: 18px; padding: 32px; position: relative; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 24px 48px rgba(255,77,0,0.25)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="display: flex; gap: 4px; margin-bottom: 20px;">
+          <span style="color: #fff; font-size: 16px;">★★★★★</span>
+        </div>
+        <p style="font-size: 15px; color: #fff; line-height: 1.7; margin: 0 0 24px; font-style: italic;">"Eu não entendia nada de redes sociais e sempre deixei para depois. Com a Fluxo não preciso me preocupar com nada. O resultado apareceu no primeiro mês."</p>
+        <div style="display: flex; align-items: center; gap: 12px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><p style="font-size: 16px; margin: 0;">💈</p></div>
+          <div><p style="font-size: 14px; font-weight: 600; color: #fff; margin: 0;">Barbearia do Zé</p><p style="font-size: 12px; color: rgba(255,255,255,0.7); margin: 2px 0 0;">Barbearia · Rio de Janeiro</p></div>
+        </div>
+      </div>
+
+      <div style="background: #0a0a0a; border: 1px solid #1e1e1e; border-radius: 18px; padding: 32px; position: relative; transition: all 0.3s;" onmouseover="this.style.borderColor='rgba(255,77,0,0.3)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#1e1e1e';this.style.transform='translateY(0)'">
+        <div style="display: flex; gap: 4px; margin-bottom: 20px;">
+          <span style="color: #FF4D00; font-size: 16px;">★★★★★</span>
+        </div>
+        <p style="font-size: 15px; color: var(--off-white); line-height: 1.7; margin: 0 0 24px; font-style: italic;">"Minha clínica tinha um Instagram parado há meses. Hoje temos posts toda semana, pacientes novos chegando pelo Instagram e uma identidade visual que representa bem o nosso trabalho."</p>
+        <div style="display: flex; align-items: center; gap: 12px; padding-top: 20px; border-top: 1px solid #1e1e1e;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: #FF4D00; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><p style="font-size: 16px; margin: 0;">🦷</p></div>
+          <div><p style="font-size: 14px; font-weight: 600; color: var(--off-white); margin: 0;">Clínica Sorrir Bem</p><p style="font-size: 12px; color: var(--gray); margin: 2px 0 0;">Odontologia · Rio de Janeiro</p></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section id="faq" style="padding: 100px 48px; max-width: 1100px; margin: 0 auto;">
+  <div class="section-label">Dúvidas frequentes</div>
+  <h2 class="section-title">Tudo que você<br/>precisa <em>saber.</em></h2>
+  <div style="display: flex; flex-direction: column; gap: 0; margin-top: 52px; border: 1px solid #1e1e1e; border-radius: 16px; overflow: hidden;">
+
+    <div style="padding: 28px 32px; border-bottom: 1px solid #1e1e1e; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#0f0f0f'" onmouseout="this.style.background='transparent'" onclick="const a=this.querySelector('.faq-ans');const i=this.querySelector('.faq-icon');a.style.display=a.style.display==='none'?'block':'none';i.textContent=i.textContent==='+'?'−':'+';this.style.background=a.style.display==='block'?'#0f0f0f':'transparent'">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px; font-weight: 600; color: var(--off-white); margin: 0;">Preciso assinar contrato de fidelidade?</p>
+        <span class="faq-icon" style="font-size: 20px; color: #FF4D00; flex-shrink: 0; margin-left: 16px;">+</span>
+      </div>
+      <p class="faq-ans" style="display: none; font-size: 15px; color: var(--gray); line-height: 1.7; margin: 16px 0 0;">Não. Todos os nossos planos são mensais e sem fidelidade. Você pode cancelar a qualquer momento sem multa ou burocracia.</p>
+    </div>
+
+    <div style="padding: 28px 32px; border-bottom: 1px solid #1e1e1e; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#0f0f0f'" onmouseout="this.style.background='transparent'" onclick="const a=this.querySelector('.faq-ans');const i=this.querySelector('.faq-icon');a.style.display=a.style.display==='none'?'block':'none';i.textContent=i.textContent==='+'?'−':'+';this.style.background=a.style.display==='block'?'#0f0f0f':'transparent'">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px; font-weight: 600; color: var(--off-white); margin: 0;">Em quanto tempo começo a ver resultado?</p>
+        <span class="faq-icon" style="font-size: 20px; color: #FF4D00; flex-shrink: 0; margin-left: 16px;">+</span>
+      </div>
+      <p class="faq-ans" style="display: none; font-size: 15px; color: var(--gray); line-height: 1.7; margin: 16px 0 0;">Os primeiros resultados aparecem ainda no primeiro mês — aumento de alcance, mais interações e perfil com identidade consistente. Crescimento sólido de seguidores e geração de clientes pelo Instagram costumam aparecer a partir do segundo e terceiro mês de consistência.</p>
+    </div>
+
+    <div style="padding: 28px 32px; border-bottom: 1px solid #1e1e1e; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#0f0f0f'" onmouseout="this.style.background='transparent'" onclick="const a=this.querySelector('.faq-ans');const i=this.querySelector('.faq-icon');a.style.display=a.style.display==='none'?'block':'none';i.textContent=i.textContent==='+'?'−':'+';this.style.background=a.style.display==='block'?'#0f0f0f':'transparent'">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px; font-weight: 600; color: var(--off-white); margin: 0;">Preciso fornecer as fotos e vídeos?</p>
+        <span class="faq-icon" style="font-size: 20px; color: #FF4D00; flex-shrink: 0; margin-left: 16px;">+</span>
+      </div>
+      <p class="faq-ans" style="display: none; font-size: 15px; color: var(--gray); line-height: 1.7; margin: 16px 0 0;">Não é obrigatório. Criamos artes e conteúdo completo para o seu negócio. Se quiser compartilhar fotos reais do seu produto ou equipe, ótimo — isso enriquece ainda mais o conteúdo. Mas trabalhamos mesmo sem elas.</p>
+    </div>
+
+    <div style="padding: 28px 32px; border-bottom: 1px solid #1e1e1e; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#0f0f0f'" onmouseout="this.style.background='transparent'" onclick="const a=this.querySelector('.faq-ans');const i=this.querySelector('.faq-icon');a.style.display=a.style.display==='none'?'block':'none';i.textContent=i.textContent==='+'?'−':'+';this.style.background=a.style.display==='block'?'#0f0f0f':'transparent'">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px; font-weight: 600; color: var(--off-white); margin: 0;">Como funciona o diagnóstico gratuito?</p>
+        <span class="faq-icon" style="font-size: 20px; color: #FF4D00; flex-shrink: 0; margin-left: 16px;">+</span>
+      </div>
+      <p class="faq-ans" style="display: none; font-size: 15px; color: var(--gray); line-height: 1.7; margin: 16px 0 0;">É simples. Você me manda o @ do seu Instagram pelo WhatsApp e em até 24 horas envio uma análise completa do seu perfil — o que está funcionando, o que precisa melhorar e o que está custando clientes. Sem compromisso de contratação.</p>
+    </div>
+
+    <div style="padding: 28px 32px; border-bottom: 1px solid #1e1e1e; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#0f0f0f'" onmouseout="this.style.background='transparent'" onclick="const a=this.querySelector('.faq-ans');const i=this.querySelector('.faq-icon');a.style.display=a.style.display==='none'?'block':'none';i.textContent=i.textContent==='+'?'−':'+';this.style.background=a.style.display==='block'?'#0f0f0f':'transparent'">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px; font-weight: 600; color: var(--off-white); margin: 0;">Vocês postam no meu Instagram ou só entregam o conteúdo?</p>
+        <span class="faq-icon" style="font-size: 20px; color: #FF4D00; flex-shrink: 0; margin-left: 16px;">+</span>
+      </div>
+      <p class="faq-ans" style="display: none; font-size: 15px; color: var(--gray); line-height: 1.7; margin: 16px 0 0;">Podemos fazer os dois. No plano Padrão e Máximo fazemos a gestão completa — você nos dá acesso ao perfil e cuidamos de tudo, incluindo agendamento e publicação. No plano Base entregamos o conteúdo pronto para você publicar.</p>
+    </div>
+
+    <div style="padding: 28px 32px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#0f0f0f'" onmouseout="this.style.background='transparent'" onclick="const a=this.querySelector('.faq-ans');const i=this.querySelector('.faq-icon');a.style.display=a.style.display==='none'?'block':'none';i.textContent=i.textContent==='+'?'−':'+';this.style.background=a.style.display==='block'?'#0f0f0f':'transparent'">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px; font-weight: 600; color: var(--off-white); margin: 0;">Atendem qualquer tipo de negócio?</p>
+        <span class="faq-icon" style="font-size: 20px; color: #FF4D00; flex-shrink: 0; margin-left: 16px;">+</span>
+      </div>
+      <p class="faq-ans" style="display: none; font-size: 15px; color: var(--gray); line-height: 1.7; margin: 16px 0 0;">Somos especializados em pequenas e médias empresas — restaurantes, clínicas, salões, lojas, prestadores de serviço e profissionais liberais. Se você tem um negócio ativo e quer crescer no digital, a Fluxo é pra você.</p>
+    </div>
+
+  </div>
+</section>
+
 <div class="cta-final" id="contato">
   <h2 class="cta-final-title">Pronto para<br/>aparecer de verdade?</h2>
   <p class="cta-final-sub">Diagnóstico gratuito do seu perfil. Sem compromisso.</p>
@@ -273,28 +430,28 @@
   const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; } }); }, { threshold: 0.1 });
   document.querySelectorAll('.service-card, .pain-item, .plan, .num-item').forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(30px)'; el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; observer.observe(el); });
 
-  // Countdown timer — 72 horas a partir do primeiro acesso
+  // Timer de urgência — renova a cada 48h automaticamente
   function startTimer() {
-    const key = 'fluxo_promo_end';
-    let end = localStorage.getItem(key);
+    const key = 'fluxo_timer_v2';
+    let end = sessionStorage.getItem(key);
     if (!end) {
-      end = Date.now() + 72 * 60 * 60 * 1000;
-      localStorage.setItem(key, end);
+      end = Date.now() + 48 * 60 * 60 * 1000;
+      sessionStorage.setItem(key, end);
     }
+    end = parseInt(end);
+    function fmt(n){ return String(n).padStart(2,'0'); }
     function update() {
-      const diff = end - Date.now();
+      let diff = end - Date.now();
       if (diff <= 0) {
-        ['timer-basic','timer-mid','timer-premium'].forEach(id => {
-          const el = document.getElementById(id);
-          if (el) el.textContent = 'Promoção encerrada';
-        });
-        return;
+        end = Date.now() + 48 * 60 * 60 * 1000;
+        sessionStorage.setItem(key, end);
+        diff = end - Date.now();
       }
       const h = Math.floor(diff / 3600000);
       const m = Math.floor((diff % 3600000) / 60000);
       const s = Math.floor((diff % 60000) / 1000);
-      const txt = `Encerra em ${h}h ${m}m ${s}s`;
-      ['timer-basic','timer-mid','timer-premium'].forEach(id => {
+      const txt = `${fmt(h)}:${fmt(m)}:${fmt(s)}`;
+      ['timer-basic','timer-mid','timer-premium','main-timer'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.textContent = txt;
       });
