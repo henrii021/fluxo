@@ -107,7 +107,10 @@
   footer p { font-size: 13px; color: var(--gray); }
   .footer-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
   .footer-logo span { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; font-weight: 700; color: var(--off-white); }
-  @media (max-width: 768px) { nav { padding: 16px 20px; } section { padding: 72px 20px; } .pain-grid, .services-grid, .pricing-grid { grid-template-columns: 1fr; } .numbers { grid-template-columns: 1fr; } .num-item { border-right: none; border-bottom: 1px solid #1e1e1e; } .num-item:last-child { border-bottom: none; } footer { flex-direction: column; text-align: center; padding: 32px 20px; } .cta-final { padding: 72px 20px; } .pain-inner, .pricing-inner { padding: 0 20px; } }
+  
+  #depoimentos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 52px; max-width: 800px; margin-left: auto; margin-right: auto; }
+
+  @media (max-width: 768px) { nav { padding: 16px 20px; } section { padding: 72px 20px; } .pain-grid, .services-grid, .pricing-grid { grid-template-columns: 1fr; } .numbers { grid-template-columns: 1fr; } .num-item { border-right: none; border-bottom: 1px solid #1e1e1e; } .num-item:last-child { border-bottom: none; } footer { flex-direction: column; text-align: center; padding: 32px 20px; } .cta-final { padding: 72px 20px; } .pain-inner, .pricing-inner { padding: 0 20px; } #depoimentos-grid { grid-template-columns: 1fr !important; } }
 
     @media (max-width: 768px) {
       #sobre > div { grid-template-columns: 1fr !important; gap: 32px !important; }
@@ -184,6 +187,29 @@
     <div class="num-item"><div class="num-val">0</div><div class="num-label">preocupação para você com o conteúdo</div></div>
   </div>
 </section>
+
+<section id="diferenciais">
+  <div class="section-label">Nosso Diferencial</div>
+  <h2 class="section-title">Por que escolher a<br/><em>Fluxo?</em></h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🤝</div>
+      <div class="service-name">Contato Direto</div>
+      <p class="service-desc">Sem gerentes de conta ou telefone sem fio. Você fala diretamente com quem cria a sua estratégia e resolve tudo rápido.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🚫</div>
+      <div class="service-name">Sem Falsas Promessas</div>
+      <p class="service-desc">Não prometemos viralização da noite pro dia. Entregamos consistência, branding sólido e crescimento real para o seu faturamento.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎯</div>
+      <div class="service-name">Foco em Vendas</div>
+      <p class="service-desc">Nossas estratégias são pensadas para quem precisa vender serviços e produtos locais, com foco total no cliente ideal, e não para inflar o ego.</p>
+    </div>
+  </div>
+</section>
+
 <div class="pricing" id="pacotes">
   <div class="pricing-inner">
     <div class="section-label">Pacotes</div>
@@ -203,8 +229,8 @@
         <div class="plan-tag">🔥 Oferta de lançamento</div>
         <div class="plan-name">Base</div>
         <div style="display:flex;align-items:center;gap:10px;margin-top:14px;">
-          <div class="plan-price">R$599</div>
-          <div style="text-decoration:line-through;font-size:18px;color:#444;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;">R$900</div>
+          <div class="plan-price">R$499</div>
+          <div style="text-decoration:line-through;font-size:18px;color:#444;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;">R$700</div>
         </div>
         <div class="plan-period">/mês · sem fidelidade</div>
         <div style="background:#0f0f0f;border:1px solid #1e1e1e;border-radius:10px;padding:12px 14px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;">
@@ -227,8 +253,8 @@
         <div class="plan-tag">⭐ Mais escolhido</div>
         <div class="plan-name">Fluxo</div>
         <div style="display:flex;align-items:center;gap:10px;margin-top:14px;">
-          <div class="plan-price">R$1.199</div>
-          <div style="text-decoration:line-through;font-size:18px;color:rgba(255,255,255,0.35);font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;">R$1.800</div>
+          <div class="plan-price">R$899</div>
+          <div style="text-decoration:line-through;font-size:18px;color:rgba(255,255,255,0.35);font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;">R$1.300</div>
         </div>
         <div class="plan-period">/mês · sem fidelidade</div>
         <div style="background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:12px 14px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;">
@@ -241,7 +267,6 @@
         <div class="plan-divider"></div>
         <div class="plan-features">
           <div class="plan-feature">20 posts no feed</div>
-          <div class="plan-feature">4 reels roteirizados</div>
           <div class="plan-feature">Stories diários</div>
           <div class="plan-feature">Estratégia de conteúdo</div>
           <div class="plan-feature">Relatório mensal</div>
@@ -249,11 +274,11 @@
         <a href="#contato" class="plan-btn plan-btn-solid">Garantir minha vaga →</a>
       </div>
       <div class="plan">
-        <div class="plan-tag">🔥 Oferta de lançamento</div>
+        <div class="plan-tag">🚀 Mais completo</div>
         <div class="plan-name">Máximo</div>
         <div style="display:flex;align-items:center;gap:10px;margin-top:14px;">
-          <div class="plan-price">R$2.999</div>
-          <div style="text-decoration:line-through;font-size:18px;color:#444;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;">R$3.500</div>
+          <div class="plan-price">R$1.799</div>
+          <div style="text-decoration:line-through;font-size:18px;color:#444;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;">R$2.500</div>
         </div>
         <div class="plan-period">/mês · sem fidelidade</div>
         <div style="background:#0f0f0f;border:1px solid #1e1e1e;border-radius:10px;padding:12px 14px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;">
@@ -266,10 +291,10 @@
         <div class="plan-divider"></div>
         <div class="plan-features">
           <div class="plan-feature">30+ posts no feed</div>
-          <div class="plan-feature">8 reels roteirizados</div>
+          <div class="plan-feature">4 reels exclusivos</div>
+          <div class="plan-feature">Stories diários</div>
           <div class="plan-feature">Copy de anúncios</div>
-          <div class="plan-feature">Estratégia completa</div>
-          <div class="plan-feature">Reunião mensal de resultado</div>
+          <div class="plan-feature">Estratégia completa + Reunião</div>
         </div>
         <a href="#contato" class="plan-btn plan-btn-outline">Garantir minha vaga →</a>
       </div>
@@ -277,7 +302,6 @@
   </div>
 </div>
 
-<!-- SOBRE -->
 <section id="sobre" style="padding: 100px 48px; max-width: 1100px; margin: 0 auto;">
   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
     <div>
@@ -308,23 +332,11 @@
   </div>
 </section>
 
-<!-- DEPOIMENTOS -->
 <div style="background: #0d0d0d; padding: 100px 0;">
   <div style="max-width: 1100px; margin: 0 auto; padding: 0 48px;">
     <div class="section-label">O que dizem nossos clientes</div>
     <h2 class="section-title">Resultados que<br/><em>falam por si.</em></h2>
-    <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 52px;">
-
-      <div style="background: #0a0a0a; border: 1px solid #1e1e1e; border-radius: 18px; padding: 32px; position: relative; transition: all 0.3s;" onmouseover="this.style.borderColor='rgba(255,77,0,0.3)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#1e1e1e';this.style.transform='translateY(0)'">
-        <div style="display: flex; gap: 4px; margin-bottom: 20px;">
-          <span style="color: #FF4D00; font-size: 16px;">★★★★★</span>
-        </div>
-        <p style="font-size: 15px; color: var(--off-white); line-height: 1.7; margin: 0 0 24px; font-style: italic;">"Em menos de 30 dias meu Instagram ganhou vida. As artes são profissionais e o conteúdo fala exatamente com meu público. Recomendo muito."</p>
-        <div style="display: flex; align-items: center; gap: 12px; padding-top: 20px; border-top: 1px solid #1e1e1e;">
-          <div style="width: 40px; height: 40px; border-radius: 50%; background: #FF4D00; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><p style="font-size: 16px; margin: 0;">🍪</p></div>
-          <div><p style="font-size: 14px; font-weight: 600; color: var(--off-white); margin: 0;">Doce Valente</p><p style="font-size: 12px; color: var(--gray); margin: 2px 0 0;">Confeitaria · Rio de Janeiro</p></div>
-        </div>
-      </div>
+    <div id="depoimentos-grid">
 
       <div style="background: #FF4D00; border: 1px solid #FF4D00; border-radius: 18px; padding: 32px; position: relative; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 24px 48px rgba(255,77,0,0.25)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
         <div style="display: flex; gap: 4px; margin-bottom: 20px;">
@@ -352,7 +364,6 @@
   </div>
 </div>
 
-<!-- FAQ -->
 <section id="faq" style="padding: 100px 48px; max-width: 1100px; margin: 0 auto;">
   <div class="section-label">Dúvidas frequentes</div>
   <h2 class="section-title">Tudo que você<br/>precisa <em>saber.</em></h2>
