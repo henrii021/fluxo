@@ -49,9 +49,19 @@
   @keyframes scrollLine { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
   
-  /* NOVO: Marcas (Social Proof Visual) */
-  .logos-section { border-top: 1px solid #1e1e1e; border-bottom: 1px solid #1e1e1e; padding: 40px 0; background: #080808; text-align: center; }
-  .logos-title { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #444; margin-bottom: 32px; font-weight: 600; }
+  /* FAIXA GIRATÓRIA (Marquee) */
+  .strip { border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 20px 0; overflow: hidden; background: #050505; position: relative; }
+  .strip::before, .strip::after { content: ''; position: absolute; top: 0; width: 150px; height: 100%; z-index: 2; }
+  .strip::before { left: 0; background: linear-gradient(to right, #050505, transparent); }
+  .strip::after { right: 0; background: linear-gradient(to left, #050505, transparent); }
+  .strip-track { display: flex; gap: 48px; animation: marquee 20s linear infinite; white-space: nowrap; width: fit-content; }
+  .strip-item { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 16px; flex-shrink: 0; transition: color 0.3s; }
+  .strip-item:hover { color: var(--orange); }
+  .strip-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 10px rgba(255,77,0,0.5); }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  .logos-section { padding: 60px 0 40px; background: #080808; text-align: center; }
+  .logos-title { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #555; margin-bottom: 32px; font-weight: 600; }
   .logos-grid { display: flex; align-items: center; justify-content: center; gap: 60px; flex-wrap: wrap; opacity: 0.5; max-width: 1000px; margin: 0 auto; padding: 0 24px; }
   .logo-placeholder { width: auto; height: 32px; fill: var(--gray); transition: fill 0.3s, transform 0.3s; }
   .logo-placeholder:hover { fill: var(--off-white); transform: scale(1.05); }
@@ -62,7 +72,6 @@
   .section-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(32px, 4vw, 56px); font-weight: 800; line-height: 1.1; letter-spacing: -2px; color: var(--off-white); margin-bottom: 20px; }
   .section-title em { font-style: normal; color: var(--orange); }
   
-  /* NOVO: Manifesto Oversized Typography */
   .manifesto { padding: 160px 48px; background: #0a0a0a; border-bottom: 1px solid #1e1e1e; display: flex; justify-content: center; align-items: center; text-align: center; position: relative; overflow: hidden; }
   .manifesto-glow { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,77,0,0.05) 0%, transparent 60%); top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
   .manifesto-text { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(40px, 6vw, 80px); font-weight: 800; line-height: 1.1; letter-spacing: -2px; color: var(--off-white); position: relative; z-index: 1; max-width: 1000px; }
@@ -89,12 +98,30 @@
   .service-name { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 700; color: var(--off-white); margin-bottom: 12px; }
   .service-desc { font-size: 15px; color: var(--gray); line-height: 1.7; }
 
-  .numbers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid #1e1e1e; border-radius: 20px; overflow: hidden; margin-top: 80px; background: #080808; }
-  .num-item { padding: 64px 40px; border-right: 1px solid #1e1e1e; text-align: center; }
-  .num-item:last-child { border-right: none; }
-  .num-val { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 64px; font-weight: 800; color: var(--orange); line-height: 1; letter-spacing: -2px; }
-  .num-label { font-size: 15px; color: var(--gray); margin-top: 16px; line-height: 1.5; font-weight: 500; }
-  
+  /* COMPARAÇÃO: Nós vs Eles */
+  .compare-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+  .compare-col { background: #0a0a0a; border: 1px solid #1e1e1e; border-radius: 20px; padding: 40px; position: relative; transition: transform 0.3s; }
+  .compare-col:hover { transform: translateY(-5px); }
+  .compare-col.highlight { border-color: var(--orange); background: #0f0f0f; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+  .compare-col.highlight::before { content: 'A Escolha Inteligente'; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--orange); color: #fff; font-size: 11px; font-weight: 800; padding: 6px 16px; border-radius: 100px; text-transform: uppercase; letter-spacing: 1px; }
+  .compare-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 800; color: var(--off-white); margin-bottom: 24px; border-bottom: 1px solid #1e1e1e; padding-bottom: 16px; text-align: center; }
+  .compare-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 14px; color: var(--gray); line-height: 1.5; }
+  .compare-icon { flex-shrink: 0; font-size: 16px; margin-top: 2px; }
+  .icon-cross { color: #ff3333; }
+  .icon-check { color: var(--orange); }
+
+  /* TRANSFORMAÇÃO: Antes e Depois Visual */
+  .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 60px; }
+  .ba-card { background: #0a0a0a; border: 1px solid #1e1e1e; border-radius: 24px; padding: 40px; text-align: center; }
+  .ba-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 700; color: var(--gray); margin-bottom: 32px; letter-spacing: -0.5px; }
+  .ba-card.after .ba-title { color: var(--off-white); }
+  .ba-card.after .ba-title span { color: var(--orange); }
+  .ba-visual { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 300px; margin: 0 auto; }
+  .ba-box { aspect-ratio: 1; border-radius: 8px; transition: transform 0.3s; }
+  .ba-box.amador { background: #111; border: 1px dashed #333; }
+  .ba-box.fluxo { background: linear-gradient(135deg, #1a1a1a, #222); border: 1px solid rgba(255,77,0,0.15); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+  .ba-card:hover .ba-box.fluxo { transform: scale(1.05); border-color: rgba(255,77,0,0.4); }
+
   .portfolio-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 60px; }
   .portfolio-card { background: #0a0a0a; border: 1px solid #1e1e1e; border-radius: 16px; padding: 40px 24px; text-align: center; transition: all 0.4s ease; position: relative; overflow: hidden; }
   .portfolio-card:hover { transform: translateY(-8px); border-color: rgba(255,77,0,0.3); background: #111; box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
@@ -157,7 +184,7 @@
   .cta-final { background: var(--orange); padding: 140px 48px; text-align: center; position: relative; overflow: hidden; }
   .cta-final::before { content: 'fluxo'; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 280px; font-weight: 800; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: rgba(0,0,0,0.06); white-space: nowrap; pointer-events: none; letter-spacing: -12px; }
   .cta-final-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(36px, 5vw, 64px); font-weight: 800; color: #fff; line-height: 1.1; letter-spacing: -2px; margin-bottom: 24px; position: relative; }
-  .cta-final-sub { font-size: 20px; color: rgba(255,255,255,0.8); margin-bottom: 48px; position: relative; font-weight: 300; }
+  .cta-final-sub { font-size: 20px; color: rgba(255,255,255,0.9); margin-bottom: 48px; position: relative; font-weight: 400; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6; }
   .btn-dark { background: #0a0a0a; color: #fff; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; padding: 22px 56px; border-radius: 100px; border: none; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s ease; position: relative; }
   .btn-dark:hover { background: #151515; transform: scale(1.05); box-shadow: 0 15px 30px rgba(0,0,0,0.3); }
   
@@ -179,16 +206,17 @@
 
   /* Ajustes Mobile e Tablets */
   @media (max-width: 992px) {
-    .pricing-grid, .services-grid, .process-grid { grid-template-columns: 1fr 1fr; }
+    .pricing-grid, .services-grid, .process-grid, .compare-grid { grid-template-columns: 1fr 1fr; }
     .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .logos-grid { gap: 30px; }
+    .ba-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 768px) { 
     nav { padding: 16px 20px; } 
     section, .manifesto { padding: 80px 24px; } 
-    .pain-grid, .services-grid, .pricing-grid, .process-grid, .footer-grid { grid-template-columns: 1fr; } 
+    .pain-grid, .services-grid, .pricing-grid, .process-grid, .footer-grid, .compare-grid { grid-template-columns: 1fr; } 
     .portfolio-grid { grid-template-columns: 1fr; gap: 16px; } 
     .numbers { grid-template-columns: 1fr; } 
     .num-item { border-right: none; border-bottom: 1px solid #1e1e1e; padding: 40px 24px; } 
@@ -217,7 +245,7 @@
     <svg viewBox="0 0 50 28" fill="none"><path d="M4 14 Q14 2 25 14 Q36 26 46 14" stroke="#FF4D00" stroke-width="3.5" stroke-linecap="round"/><circle cx="46" cy="14" r="4" fill="#FF4D00"/></svg>
     <span>fluxo</span>
   </a>
-  <a href="#" class="nav-cta btn-open-modal">Falar com a Fluxo →</a>
+  <a href="#" class="nav-cta btn-open-modal">Aplicar para uma vaga →</a>
 </nav>
 
 <div class="hero">
@@ -231,6 +259,26 @@
     <a href="#servicos" class="btn-secondary">Entender como funciona ↓</a>
   </div>
   <div class="hero-scroll"><span>scroll</span><div class="scroll-line"></div></div>
+</div>
+
+<div class="strip">
+  <div class="strip-track">
+    <div class="strip-item"><div class="strip-dot"></div>Social Media</div>
+    <div class="strip-item"><div class="strip-dot"></div>Copy Estratégico</div>
+    <div class="strip-item"><div class="strip-dot"></div>Artes Profissionais</div>
+    <div class="strip-item"><div class="strip-dot"></div>Gestão de Conteúdo</div>
+    <div class="strip-item"><div class="strip-dot"></div>Resultado em 30 dias</div>
+    <div class="strip-item"><div class="strip-dot"></div>Pequenas Empresas</div>
+    <div class="strip-item"><div class="strip-dot"></div>Presença Digital</div>
+    <div class="strip-item"><div class="strip-dot"></div>Tráfego e Conversão</div>
+    <div class="strip-item"><div class="strip-dot"></div>Social Media</div>
+    <div class="strip-item"><div class="strip-dot"></div>Copy Estratégico</div>
+    <div class="strip-item"><div class="strip-dot"></div>Artes Profissionais</div>
+    <div class="strip-item"><div class="strip-dot"></div>Gestão de Conteúdo</div>
+    <div class="strip-item"><div class="strip-dot"></div>Resultado em 30 dias</div>
+    <div class="strip-item"><div class="strip-dot"></div>Pequenas Empresas</div>
+    <div class="strip-item"><div class="strip-dot"></div>Presença Digital</div>
+  </div>
 </div>
 
 <div class="logos-section">
@@ -277,6 +325,67 @@
     <div class="num-item"><div class="num-val">30</div><div class="num-label">dias para ver os primeiros resultados de alcance</div></div>
     <div class="num-item"><div class="num-val">20+</div><div class="num-label">conteúdos mensais no nosso plano mais escolhido</div></div>
     <div class="num-item"><div class="num-val">Zero</div><div class="num-label">preocupação para você focar no seu negócio</div></div>
+  </div>
+</section>
+
+<section id="comparacao" style="padding-top: 0;">
+  <div class="section-label">Custo-Benefício</div>
+  <h2 class="section-title">O custo de <em>não delegar.</em></h2>
+  <div class="compare-grid">
+    
+    <div class="compare-col">
+      <h3 class="compare-title">Fazer Sozinho</h3>
+      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Consome horas do seu dia</div>
+      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Sem padrão ou estratégia visual</div>
+      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Inconstância (posta só quando dá tempo)</div>
+      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Frustração por não gerar vendas</div>
+      <div style="margin-top: 32px; font-weight: 700; color: #ff3333; text-align: center;">Preço: O seu tempo livre</div>
+    </div>
+    
+    <div class="compare-col highlight">
+      <h3 class="compare-title" style="color: var(--orange);">Agência Fluxo</h3>
+      <div class="compare-item"><span class="compare-icon icon-check">✓</span> Especialistas cuidam de tudo</div>
+      <div class="compare-item"><span class="compare-icon icon-check">✓</span> Design premium e branding consistente</div>
+      <div class="compare-item"><span class="compare-icon icon-check">✓</span> Planeamento mensal garantido</div>
+      <div class="compare-item"><span class="compare-icon icon-check">✓</span> Foco total em conversão e vendas</div>
+      <div style="margin-top: 32px; font-weight: 800; color: var(--off-white); text-align: center; font-size: 20px;">A partir de R$ 499</div>
+    </div>
+
+    <div class="compare-col">
+      <h3 class="compare-title">Contratar CLT</h3>
+      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Custos altos de salário e encargos</div>
+      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Risco trabalhista e equipamento</div>
+      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Dificuldade em achar quem faça copy E design</div>
+      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Curva de aprendizagem lenta</div>
+      <div style="margin-top: 32px; font-weight: 700; color: #ff3333; text-align: center;">Preço: R$ 2.500+ mensais</div>
+    </div>
+
+  </div>
+</section>
+
+<section id="transformacao" style="padding-top: 0;">
+  <div class="section-label">A Diferença Visual</div>
+  <h2 class="section-title">O impacto do <em>design.</em></h2>
+  <div class="ba-grid">
+    <div class="ba-card">
+      <h3 class="ba-title">Feed Amador</h3>
+      <div class="ba-visual">
+        <div class="ba-box amador"></div><div class="ba-box amador"></div><div class="ba-box amador"></div>
+        <div class="ba-box amador"></div><div class="ba-box amador"></div><div class="ba-box amador"></div>
+        <div class="ba-box amador"></div><div class="ba-box amador"></div><div class="ba-box amador"></div>
+      </div>
+      <p style="margin-top: 24px; font-size: 14px; color: var(--gray);">Posts sem padrão, cores confusas, não transmite confiança para o cliente comprar.</p>
+    </div>
+    
+    <div class="ba-card after">
+      <h3 class="ba-title">Feed <span>Fluxo</span></h3>
+      <div class="ba-visual">
+        <div class="ba-box fluxo"></div><div class="ba-box fluxo"></div><div class="ba-box fluxo"></div>
+        <div class="ba-box fluxo"></div><div class="ba-box fluxo"></div><div class="ba-box fluxo"></div>
+        <div class="ba-box fluxo"></div><div class="ba-box fluxo"></div><div class="ba-box fluxo"></div>
+      </div>
+      <p style="margin-top: 24px; font-size: 14px; color: var(--off-white);">Identidade visual sólida, estética premium, autoridade imediata no primeiro segundo.</p>
+    </div>
   </div>
 </section>
 
@@ -360,7 +469,7 @@
           <div class="plan-feature">4 stories por semana</div>
           <div class="plan-feature">Arte com identidade visual</div>
         </div>
-        <button class="plan-btn plan-btn-outline btn-open-modal" data-plan="Base">Garantir minha vaga →</button>
+        <button class="plan-btn plan-btn-outline btn-open-modal" data-plan="Base">Aplicar para vaga →</button>
       </div>
 
       <div class="plan featured">
@@ -379,7 +488,7 @@
           <div class="plan-feature">Identidade Visual Premium</div>
           <div class="plan-feature">Relatório mensal de métricas</div>
         </div>
-        <button class="plan-btn plan-btn-solid btn-open-modal" data-plan="Fluxo">Garantir minha vaga →</button>
+        <button class="plan-btn plan-btn-solid btn-open-modal" data-plan="Fluxo">Aplicar para vaga →</button>
       </div>
 
       <div class="plan">
@@ -398,7 +507,7 @@
           <div class="plan-feature">Copy focada em conversão</div>
           <div class="plan-feature">Estratégia completa + Reunião Online</div>
         </div>
-        <button class="plan-btn plan-btn-outline btn-open-modal" data-plan="Máximo">Garantir minha vaga →</button>
+        <button class="plan-btn plan-btn-outline btn-open-modal" data-plan="Máximo">Aplicar para vaga →</button>
       </div>
     </div>
   </div>
@@ -525,8 +634,8 @@
 
 <div class="cta-final" id="contato">
   <h2 class="cta-final-title">Pronto para<br/>aparecer de verdade?</h2>
-  <p class="cta-final-sub">Agende uma análise estratégica do seu negócio para otimizarmos seu tempo.</p>
-  <button class="btn-dark btn-open-modal">Fazer minha aplicação gratuita →</button>
+  <p class="cta-final-sub">Atendemos um número restrito de projetos por mês para garantir a qualidade de entrega. Faça a sua aplicação para descobrirmos se somos o parceiro ideal para o momento do seu negócio.</p>
+  <button class="btn-dark btn-open-modal">Submeter a minha aplicação →</button>
 </div>
 
 <footer>
@@ -593,7 +702,6 @@
 </div>
 
 <script>
-  // FAQ Toggle Logic
   function toggleFaq(el) {
     const a = el.querySelector('.faq-ans');
     const i = el.querySelector('.faq-icon');
@@ -602,7 +710,6 @@
     el.style.background = a.style.display === 'block' ? '#0f0f0f' : 'transparent';
   }
 
-  // Cursors
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
   let mx = 0, my = 0, rx = 0, ry = 0;
@@ -619,7 +726,7 @@
   }
   animateRing();
   
-  document.querySelectorAll('a, button, .faq-icon, .process-step, .portfolio-card, .logo-placeholder').forEach(el => { 
+  document.querySelectorAll('a, button, .faq-icon, .process-step, .portfolio-card, .logo-placeholder, .compare-col').forEach(el => { 
     el.addEventListener('mouseenter', () => { 
       cursor.style.transform = 'translate(-50%,-50%) scale(2.5)'; 
       cursor.style.background = 'rgba(255,77,0,0.5)';
@@ -634,7 +741,6 @@
     }); 
   });
 
-  // Reveal Animations
   const observer = new IntersectionObserver(entries => { 
     entries.forEach(e => { 
       if (e.isIntersecting) { 
@@ -644,14 +750,13 @@
     }); 
   }, { threshold: 0.15 });
   
-  document.querySelectorAll('.service-card, .pain-item, .plan, .num-item, .process-step, .portfolio-card, .manifesto-text').forEach(el => { 
+  document.querySelectorAll('.service-card, .pain-item, .plan, .num-item, .process-step, .portfolio-card, .manifesto-text, .compare-col, .ba-card').forEach(el => { 
     el.style.opacity = '0'; 
     el.style.transform = 'translateY(40px)'; 
     el.style.transition = 'opacity 0.7s ease-out, transform 0.7s ease-out'; 
     observer.observe(el); 
   });
 
-  // Timer
   function startTimer() {
     const key = 'fluxo_timer_v4';
     let end = sessionStorage.getItem(key);
@@ -679,7 +784,6 @@
   }
   startTimer();
 
-  // Modal Automação Logic
   const modal = document.getElementById('leadModal');
   const btnClose = document.getElementById('closeModal');
   let selectedPlan = '';
@@ -687,7 +791,7 @@
   document.querySelectorAll('.btn-open-modal').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      selectedPlan = btn.getAttribute('data-plan') || 'Diagnóstico Geral';
+      selectedPlan = btn.getAttribute('data-plan') || 'Aplicação Geral (CTA Final)';
       modal.classList.add('active');
     });
   });
@@ -707,7 +811,7 @@
       return;
     }
 
-    const text = `Olá! Vim pelo site da Fluxo.\n\n*Meu interesse:* ${selectedPlan}\n*Nicho:* ${niche}\n*Maior desafio:* ${pain}\n*Faturamento:* ${revenue}\n\nGostaria de entender melhor como vocês podem me ajudar.`;
+    const text = `Olá! Fiz uma aplicação no site da Fluxo.\n\n*Interesse:* ${selectedPlan}\n*Nicho:* ${niche}\n*Maior desafio:* ${pain}\n*Faturamento:* ${revenue}\n\nGostaria de entender se meu negócio tem o perfil para a agência.`;
     const encodedText = encodeURIComponent(text);
     const whatsappUrl = `https://wa.me/5521975359273?text=${encodedText}`;
     
