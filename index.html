@@ -49,7 +49,6 @@
   @keyframes scrollLine { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
   
-  /* FAIXA GIRATÓRIA (Marquee) */
   .strip { border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 20px 0; overflow: hidden; background: #050505; position: relative; }
   .strip::before, .strip::after { content: ''; position: absolute; top: 0; width: 150px; height: 100%; z-index: 2; }
   .strip::before { left: 0; background: linear-gradient(to right, #050505, transparent); }
@@ -98,6 +97,14 @@
   .service-name { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 700; color: var(--off-white); margin-bottom: 12px; }
   .service-desc { font-size: 15px; color: var(--gray); line-height: 1.7; }
 
+  /* CARDS DE NÚMEROS (Formatados e Otimizados) */
+  .numbers-wrapper { padding: 40px 48px 100px; max-width: 1200px; margin: 0 auto; }
+  .numbers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .num-card { background: #0a0a0a; border: 1px solid #1e1e1e; border-radius: 24px; padding: 48px 32px; text-align: center; transition: all 0.4s ease; }
+  .num-card:hover { transform: translateY(-8px); border-color: rgba(255,77,0,0.3); background: #0f0f0f; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+  .num-val { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 64px; font-weight: 800; color: var(--orange); line-height: 1; margin-bottom: 12px; letter-spacing: -2px; }
+  .num-label { font-size: 16px; color: var(--gray); line-height: 1.5; font-weight: 500; }
+
   /* COMPARAÇÃO: Nós vs Eles */
   .compare-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
   .compare-col { background: #0a0a0a; border: 1px solid #1e1e1e; border-radius: 20px; padding: 40px; position: relative; transition: transform 0.3s; }
@@ -109,18 +116,6 @@
   .compare-icon { flex-shrink: 0; font-size: 16px; margin-top: 2px; }
   .icon-cross { color: #ff3333; }
   .icon-check { color: var(--orange); }
-
-  /* TRANSFORMAÇÃO: Antes e Depois Visual */
-  .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 60px; }
-  .ba-card { background: #0a0a0a; border: 1px solid #1e1e1e; border-radius: 24px; padding: 40px; text-align: center; }
-  .ba-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 700; color: var(--gray); margin-bottom: 32px; letter-spacing: -0.5px; }
-  .ba-card.after .ba-title { color: var(--off-white); }
-  .ba-card.after .ba-title span { color: var(--orange); }
-  .ba-visual { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 300px; margin: 0 auto; }
-  .ba-box { aspect-ratio: 1; border-radius: 8px; transition: transform 0.3s; }
-  .ba-box.amador { background: #111; border: 1px dashed #333; }
-  .ba-box.fluxo { background: linear-gradient(135deg, #1a1a1a, #222); border: 1px solid rgba(255,77,0,0.15); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-  .ba-card:hover .ba-box.fluxo { transform: scale(1.05); border-color: rgba(255,77,0,0.4); }
 
   .portfolio-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 60px; }
   .portfolio-card { background: #0a0a0a; border: 1px solid #1e1e1e; border-radius: 16px; padding: 40px 24px; text-align: center; transition: all 0.4s ease; position: relative; overflow: hidden; }
@@ -204,23 +199,19 @@
   .wpp-float:hover { transform: scale(1.1) translateY(-5px); box-shadow: 0 15px 40px rgba(37,211,102,0.5); }
   .wpp-float svg { width: 34px; height: 34px; fill: #fff; }
 
-  /* Ajustes Mobile e Tablets */
   @media (max-width: 992px) {
-    .pricing-grid, .services-grid, .process-grid, .compare-grid { grid-template-columns: 1fr 1fr; }
+    .pricing-grid, .services-grid, .process-grid, .compare-grid, .numbers-grid { grid-template-columns: 1fr 1fr; }
     .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .logos-grid { gap: 30px; }
-    .ba-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 768px) { 
     nav { padding: 16px 20px; } 
     section, .manifesto { padding: 80px 24px; } 
-    .pain-grid, .services-grid, .pricing-grid, .process-grid, .footer-grid, .compare-grid { grid-template-columns: 1fr; } 
+    .pain-grid, .services-grid, .pricing-grid, .process-grid, .footer-grid, .compare-grid, .numbers-grid { grid-template-columns: 1fr; } 
+    .numbers-wrapper { padding: 20px 24px 60px; }
     .portfolio-grid { grid-template-columns: 1fr; gap: 16px; } 
-    .numbers { grid-template-columns: 1fr; } 
-    .num-item { border-right: none; border-bottom: 1px solid #1e1e1e; padding: 40px 24px; } 
-    .num-item:last-child { border-bottom: none; } 
     .cta-final { padding: 80px 24px; } 
     .pain-inner, .pricing-inner { padding: 0 24px; } 
     #depoimentos-grid { grid-template-columns: 1fr !important; } 
@@ -321,71 +312,57 @@
     <div class="service-card"><div class="service-icon">🎯</div><div class="service-name">Copy para Anúncios</div><p class="service-desc">Textos magnéticos para campanhas pagas no Instagram e Facebook que convertem antes de gastar.</p></div>
     <div class="service-card"><div class="service-icon">📈</div><div class="service-name">Relatório Mensal</div><p class="service-desc">Dados claros do que funcionou, o que cresceu e quais os próximos passos do nosso crescimento.</p></div>
   </div>
-  <div class="numbers">
-    <div class="num-item"><div class="num-val">30</div><div class="num-label">dias para ver os primeiros resultados de alcance</div></div>
-    <div class="num-item"><div class="num-val">20+</div><div class="num-label">conteúdos mensais no nosso plano mais escolhido</div></div>
-    <div class="num-item"><div class="num-val">Zero</div><div class="num-label">preocupação para você focar no seu negócio</div></div>
-  </div>
 </section>
+
+<div class="numbers-wrapper">
+  <div class="numbers-grid">
+    <div class="num-card">
+      <div class="num-val">30</div>
+      <div class="num-label">dias para ver os primeiros resultados de alcance orgânico</div>
+    </div>
+    <div class="num-card">
+      <div class="num-val">20+</div>
+      <div class="num-label">conteúdos mensais no nosso plano mais escolhido</div>
+    </div>
+    <div class="num-card">
+      <div class="num-val">Zero</div>
+      <div class="num-label">preocupação para você poder focar apenas no seu negócio</div>
+    </div>
+  </div>
+</div>
 
 <section id="comparacao" style="padding-top: 0;">
   <div class="section-label">Custo-Benefício</div>
-  <h2 class="section-title">O custo de <em>não delegar.</em></h2>
+  <h2 class="section-title">O custo real de <em>não delegar.</em></h2>
   <div class="compare-grid">
     
     <div class="compare-col">
       <h3 class="compare-title">Fazer Sozinho</h3>
-      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Consome horas do seu dia</div>
-      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Sem padrão ou estratégia visual</div>
-      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Inconstância (posta só quando dá tempo)</div>
-      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Frustração por não gerar vendas</div>
-      <div style="margin-top: 32px; font-weight: 700; color: #ff3333; text-align: center;">Preço: O seu tempo livre</div>
+      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Consome horas valiosas do seu dia</div>
+      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Sem padrão ou estratégia visual forte</div>
+      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Inconstância (posta só quando tem tempo)</div>
+      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Frustração por engajar e não vender</div>
+      <div style="margin-top: 32px; font-weight: 700; color: #ff3333; text-align: center;">Preço real: O seu tempo livre</div>
     </div>
     
     <div class="compare-col highlight">
       <h3 class="compare-title" style="color: var(--orange);">Agência Fluxo</h3>
-      <div class="compare-item"><span class="compare-icon icon-check">✓</span> Especialistas cuidam de tudo</div>
-      <div class="compare-item"><span class="compare-icon icon-check">✓</span> Design premium e branding consistente</div>
+      <div class="compare-item"><span class="compare-icon icon-check">✓</span> Nossa equipa de especialistas faz tudo</div>
+      <div class="compare-item"><span class="compare-icon icon-check">✓</span> Design premium e identidade de marca</div>
       <div class="compare-item"><span class="compare-icon icon-check">✓</span> Planeamento mensal garantido</div>
-      <div class="compare-item"><span class="compare-icon icon-check">✓</span> Foco total em conversão e vendas</div>
+      <div class="compare-item"><span class="compare-icon icon-check">✓</span> Textos focados em converter seguidores em clientes</div>
       <div style="margin-top: 32px; font-weight: 800; color: var(--off-white); text-align: center; font-size: 20px;">A partir de R$ 499</div>
     </div>
 
     <div class="compare-col">
       <h3 class="compare-title">Contratar CLT</h3>
-      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Custos altos de salário e encargos</div>
-      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Risco trabalhista e equipamento</div>
-      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Dificuldade em achar quem faça copy E design</div>
-      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Curva de aprendizagem lenta</div>
-      <div style="margin-top: 32px; font-weight: 700; color: #ff3333; text-align: center;">Preço: R$ 2.500+ mensais</div>
+      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Custos altos (Salário base + Encargos)</div>
+      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Riscos e necessidade de comprar equipamento</div>
+      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Difícil achar quem faça design, copy e edição de vídeo</div>
+      <div class="compare-item"><span class="compare-icon icon-cross">✕</span> Pode pedir demissão e te deixar na mão</div>
+      <div style="margin-top: 32px; font-weight: 700; color: #ff3333; text-align: center;">Preço real: R$ 2.500+ mensais</div>
     </div>
 
-  </div>
-</section>
-
-<section id="transformacao" style="padding-top: 0;">
-  <div class="section-label">A Diferença Visual</div>
-  <h2 class="section-title">O impacto do <em>design.</em></h2>
-  <div class="ba-grid">
-    <div class="ba-card">
-      <h3 class="ba-title">Feed Amador</h3>
-      <div class="ba-visual">
-        <div class="ba-box amador"></div><div class="ba-box amador"></div><div class="ba-box amador"></div>
-        <div class="ba-box amador"></div><div class="ba-box amador"></div><div class="ba-box amador"></div>
-        <div class="ba-box amador"></div><div class="ba-box amador"></div><div class="ba-box amador"></div>
-      </div>
-      <p style="margin-top: 24px; font-size: 14px; color: var(--gray);">Posts sem padrão, cores confusas, não transmite confiança para o cliente comprar.</p>
-    </div>
-    
-    <div class="ba-card after">
-      <h3 class="ba-title">Feed <span>Fluxo</span></h3>
-      <div class="ba-visual">
-        <div class="ba-box fluxo"></div><div class="ba-box fluxo"></div><div class="ba-box fluxo"></div>
-        <div class="ba-box fluxo"></div><div class="ba-box fluxo"></div><div class="ba-box fluxo"></div>
-        <div class="ba-box fluxo"></div><div class="ba-box fluxo"></div><div class="ba-box fluxo"></div>
-      </div>
-      <p style="margin-top: 24px; font-size: 14px; color: var(--off-white);">Identidade visual sólida, estética premium, autoridade imediata no primeiro segundo.</p>
-    </div>
   </div>
 </section>
 
@@ -726,7 +703,7 @@
   }
   animateRing();
   
-  document.querySelectorAll('a, button, .faq-icon, .process-step, .portfolio-card, .logo-placeholder, .compare-col').forEach(el => { 
+  document.querySelectorAll('a, button, .faq-icon, .process-step, .portfolio-card, .logo-placeholder, .compare-col, .num-card').forEach(el => { 
     el.addEventListener('mouseenter', () => { 
       cursor.style.transform = 'translate(-50%,-50%) scale(2.5)'; 
       cursor.style.background = 'rgba(255,77,0,0.5)';
@@ -750,7 +727,7 @@
     }); 
   }, { threshold: 0.15 });
   
-  document.querySelectorAll('.service-card, .pain-item, .plan, .num-item, .process-step, .portfolio-card, .manifesto-text, .compare-col, .ba-card').forEach(el => { 
+  document.querySelectorAll('.service-card, .pain-item, .plan, .num-card, .process-step, .portfolio-card, .manifesto-text, .compare-col').forEach(el => { 
     el.style.opacity = '0'; 
     el.style.transform = 'translateY(40px)'; 
     el.style.transition = 'opacity 0.7s ease-out, transform 0.7s ease-out'; 
