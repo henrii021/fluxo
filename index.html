@@ -3,14 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fluxo — Agência de Conteúdo</title>
+<title>Fluxo · Agência de Conteúdo</title>
+
 <meta name="description" content="Agência de conteúdo e social media para negócios locais no Rio e na Baixada. Estratégia, artes e copy para o seu negócio aparecer e vender mais.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://fluxoagencia.vercel.app/">
-<meta property="og:title" content="Fluxo — Conteúdo para negócios locais">
+<meta property="og:title" content="Fluxo · Conteúdo para negócios locais">
 <meta property="og:description" content="Social media, conteúdo e sites para o seu negócio aparecer onde o cliente está. Planos a partir de R$499.">
 <meta property="og:image" content="https://fluxoagencia.vercel.app/images/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fluxo · Conteúdo para negócios locais">
+<meta name="twitter:description" content="Social media, conteúdo e sites para o seu negócio aparecer onde o cliente está.">
+<meta name="twitter:image" content="https://fluxoagencia.vercel.app/images/og.png">
+
 <link rel="icon" type="image/png" href="images/topo-site.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
@@ -99,7 +106,8 @@
   .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--orange); transform: scaleX(0); transform-origin: left; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
   .service-card:hover { border-color: rgba(255,77,0,0.4); transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.4); background: #121212; z-index: 2; }
   .service-card:hover::before { transform: scaleX(1); }
-  .service-icon { width: 56px; height: 56px; border-radius: 14px; background: rgba(255,77,0,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 32px; font-size: 24px; color: var(--orange); transition: transform 0.4s ease; }
+  .service-icon { width: 56px; height: 56px; border-radius: 14px; background: rgba(255,77,0,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 32px; color: var(--orange); transition: transform 0.4s ease, background 0.4s ease, color 0.4s ease; }
+  .service-icon svg { width: 26px; height: 26px; }
   .service-card:hover .service-icon { transform: scale(1.1); background: var(--orange); color: #fff; }
   .service-name { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 700; color: var(--off-white); margin-bottom: 12px; }
   .service-desc { font-size: 15px; color: var(--gray); line-height: 1.7; }
@@ -125,8 +133,9 @@
   .portfolio-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 60px; }
   .portfolio-card { background: #0a0a0a; border: 1px solid #1e1e1e; border-radius: 16px; padding: 40px 24px; text-align: center; transition: all 0.4s ease; position: relative; overflow: hidden; }
   .portfolio-card:hover { transform: translateY(-8px); border-color: rgba(255,77,0,0.3); background: #111; box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
-  .portfolio-icon { font-size: 40px; margin-bottom: 20px; display: inline-block; filter: drop-shadow(0 0 10px rgba(255,77,0,0.1)); transition: transform 0.3s; }
-  .portfolio-card:hover .portfolio-icon { transform: scale(1.1); filter: drop-shadow(0 0 15px rgba(255,77,0,0.3)); }
+  .portfolio-icon { margin-bottom: 20px; display: inline-flex; color: var(--orange); transition: transform 0.3s; }
+  .portfolio-icon svg { width: 40px; height: 40px; }
+  .portfolio-card:hover .portfolio-icon { transform: scale(1.1); }
   .portfolio-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 800; color: var(--off-white); margin-bottom: 8px; }
   .portfolio-category { font-size: 11px; color: var(--orange); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
   
@@ -197,8 +206,6 @@
   .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 32px; border-top: 1px solid #1e1e1e; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
   .footer-bottom p { font-size: 13px; color: var(--gray); margin: 0; }
   
-  #depoimentos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 60px; max-width: 1000px; margin-left: auto; margin-right: auto; }
-
   .wpp-float { position: fixed; bottom: 30px; right: 30px; width: 64px; height: 64px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; z-index: 990; box-shadow: 0 10px 30px rgba(37,211,102,0.3); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: none; }
   .wpp-float:hover { transform: scale(1.1) translateY(-5px); box-shadow: 0 15px 40px rgba(37,211,102,0.5); }
   .wpp-float svg { width: 34px; height: 34px; fill: #fff; }
@@ -219,7 +226,6 @@
     .portfolio-grid { grid-template-columns: 1fr; gap: 16px; } 
     .cta-final { padding: 80px 24px; } 
     .pain-inner, .pricing-inner { padding: 0 24px; } 
-    #depoimentos-grid { grid-template-columns: 1fr !important; } 
     .wpp-float { bottom: 20px; right: 20px; width: 56px; height: 56px; } 
     .wpp-float svg { width: 30px; height: 30px; } 
     .modal-box { padding: 32px 24px; } 
@@ -240,7 +246,7 @@
   <a href="#" class="nav-logo">
     <img src="images/logo-branca.png" alt="Fluxo Agência" style="height: 28px; width: auto; object-fit: contain;">
   </a>
-  <a href="#" class="nav-cta btn-open-modal">Aplicar para uma vaga →</a>
+  <a href="#" class="nav-cta btn-open-modal">Fazer minha aplicação →</a>
 </nav>
 
 <div class="hero">
@@ -248,7 +254,7 @@
   <div class="hero-glow"></div>
   <div class="hero-tag">Agência de conteúdo para pequenas empresas</div>
   <h1 class="hero-title">Seu negócio<br/><em>merece</em> ser visto.</h1>
-  <p class="hero-sub">Cuidamos do seu conteúdo do início ao fim — estratégia, artes e copy — para você aparecer onde o seu cliente está.</p>
+  <p class="hero-sub">Cuidamos do seu conteúdo do início ao fim: estratégia, artes e copy para o seu negócio aparecer onde o cliente está.</p>
   <div class="hero-actions">
     <a href="#pacotes" class="btn-primary">Ver Planos e Preços →</a>
     <a href="#servicos" class="btn-secondary">Entender como funciona ↓</a>
@@ -277,13 +283,13 @@
 </div>
 
 <div class="logos-section">
-  <p class="logos-title">Nicho de empresas que transformamos no digital</p>
+  <p class="logos-title">Nichos de negócio que transformamos no digital</p>
   <div class="logos-grid">
-    <svg class="logo-placeholder" viewBox="0 0 120 32" xmlns="http://www.w3.org/2000/svg"><text x="0" y="22" font-family="Plus Jakarta Sans" font-size="18" font-weight="700" letter-spacing="1">ODONTO</text></svg>
-    <svg class="logo-placeholder" viewBox="0 0 120 32" xmlns="http://www.w3.org/2000/svg"><text x="0" y="22" font-family="Plus Jakarta Sans" font-size="18" font-weight="700" letter-spacing="1">CLÍNICAS</text></svg>
-    <svg class="logo-placeholder" viewBox="0 0 120 32" xmlns="http://www.w3.org/2000/svg"><text x="0" y="22" font-family="Plus Jakarta Sans" font-size="18" font-weight="700" letter-spacing="1">GASTRO</text></svg>
-    <svg class="logo-placeholder" viewBox="0 0 120 32" xmlns="http://www.w3.org/2000/svg"><text x="0" y="22" font-family="Plus Jakarta Sans" font-size="18" font-weight="700" letter-spacing="1">JURÍDICO</text></svg>
-    <svg class="logo-placeholder" viewBox="0 0 120 32" xmlns="http://www.w3.org/2000/svg"><text x="0" y="22" font-family="Plus Jakarta Sans" font-size="18" font-weight="700" letter-spacing="1">DESIGN</text></svg>
+    <svg class="logo-placeholder" viewBox="0 0 130 32" xmlns="http://www.w3.org/2000/svg"><text x="0" y="22" font-family="Plus Jakarta Sans" font-size="18" font-weight="700" letter-spacing="1">SALÕES</text></svg>
+    <svg class="logo-placeholder" viewBox="0 0 150 32" xmlns="http://www.w3.org/2000/svg"><text x="0" y="22" font-family="Plus Jakarta Sans" font-size="18" font-weight="700" letter-spacing="1">BARBEARIAS</text></svg>
+    <svg class="logo-placeholder" viewBox="0 0 130 32" xmlns="http://www.w3.org/2000/svg"><text x="0" y="22" font-family="Plus Jakarta Sans" font-size="18" font-weight="700" letter-spacing="1">ESTÉTICA</text></svg>
+    <svg class="logo-placeholder" viewBox="0 0 170 32" xmlns="http://www.w3.org/2000/svg"><text x="0" y="22" font-family="Plus Jakarta Sans" font-size="18" font-weight="700" letter-spacing="1">GASTRONOMIA</text></svg>
+    <svg class="logo-placeholder" viewBox="0 0 130 32" xmlns="http://www.w3.org/2000/svg"><text x="0" y="22" font-family="Plus Jakarta Sans" font-size="18" font-weight="700" letter-spacing="1">CLÍNICAS</text></svg>
   </div>
 </div>
 
@@ -309,12 +315,12 @@
   <div class="section-label">O que fazemos</div>
   <h2 class="section-title">Tudo que seu negócio<br/>precisa para <em>aparecer.</em></h2>
   <div class="services-grid">
-    <div class="service-card"><div class="service-icon">📱</div><div class="service-name">Gestão de Redes</div><p class="service-desc">Feed, stories e reels planejados, produzidos e agendados todo mês. Você não precisa tocar em nada.</p></div>
-    <div class="service-card"><div class="service-icon">✍️</div><div class="service-name">Copy Estratégico</div><p class="service-desc">Legendas, textos de anúncio e roteiros que falam com o seu cliente e geram ação de venda.</p></div>
-    <div class="service-card"><div class="service-icon">🎨</div><div class="service-name">Artes Profissionais</div><p class="service-desc">Identidade visual consistente em todos os posts. Sua marca reconhecível e desejada em segundos.</p></div>
-    <div class="service-card"><div class="service-icon">📊</div><div class="service-name">Estratégia de Conteúdo</div><p class="service-desc">Planejamento mensal com pauta focada no seu público, calendário editorial e tom de voz.</p></div>
-    <div class="service-card"><div class="service-icon">🎯</div><div class="service-name">Copy para Anúncios</div><p class="service-desc">Textos magnéticos para campanhas pagas no Instagram e Facebook que convertem antes de gastar.</p></div>
-    <div class="service-card"><div class="service-icon">📈</div><div class="service-name">Relatório Mensal</div><p class="service-desc">Dados claros do que funcionou, o que cresceu e quais os próximos passos do nosso crescimento.</p></div>
+    <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><line x1="10" y1="18" x2="14" y2="18"/></svg></div><div class="service-name">Gestão de Redes</div><p class="service-desc">Feed, stories e reels planejados, produzidos e agendados todo mês. Você não precisa tocar em nada.</p></div>
+    <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div><div class="service-name">Copy Estratégico</div><p class="service-desc">Legendas, textos de anúncio e roteiros que falam com o seu cliente e geram ação de venda.</p></div>
+    <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="1"/><circle cx="17.5" cy="10.5" r="1"/><circle cx="8.5" cy="7.5" r="1"/><circle cx="6.5" cy="12.5" r="1"/><path d="M12 2a10 10 0 0 0 0 20c.9 0 1.6-.7 1.6-1.6 0-.4-.2-.8-.4-1.1-.3-.3-.4-.7-.4-1.1 0-.9.7-1.6 1.6-1.6H16a6 6 0 0 0 6-6c0-5-4.5-8.6-10-8.6Z"/></svg></div><div class="service-name">Artes Profissionais</div><p class="service-desc">Identidade visual consistente em todos os posts. Sua marca reconhecível e desejada em segundos.</p></div>
+    <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg></div><div class="service-name">Estratégia de Conteúdo</div><p class="service-desc">Planejamento mensal com pauta focada no seu público, calendário editorial e tom de voz.</p></div>
+    <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 15-6v14l-15-6v-2Z"/><path d="M8 13v4a2 2 0 0 0 4 0"/></svg></div><div class="service-name">Copy para Anúncios</div><p class="service-desc">Textos magnéticos para campanhas pagas no Instagram e Facebook que convertem antes de gastar.</p></div>
+    <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="20" x2="4" y2="4"/><line x1="4" y1="20" x2="20" y2="20"/><rect x="7" y="12" width="3" height="5"/><rect x="12" y="8" width="3" height="9"/><rect x="17" y="5" width="3" height="12"/></svg></div><div class="service-name">Relatório Mensal</div><p class="service-desc">Dados claros do que funcionou, o que cresceu e quais os próximos passos do nosso crescimento.</p></div>
   </div>
 </section>
 
@@ -351,9 +357,9 @@
     
     <div class="compare-col highlight">
       <h3 class="compare-title" style="color: var(--orange);">Agência Fluxo</h3>
-      <div class="compare-item"><span class="compare-icon icon-check">✓</span> Nossa equipa de especialistas faz tudo</div>
+      <div class="compare-item"><span class="compare-icon icon-check">✓</span> Nossa equipe de especialistas faz tudo</div>
       <div class="compare-item"><span class="compare-icon icon-check">✓</span> Design premium e identidade de marca</div>
-      <div class="compare-item"><span class="compare-icon icon-check">✓</span> Planeamento mensal garantido</div>
+      <div class="compare-item"><span class="compare-icon icon-check">✓</span> Planejamento mensal garantido</div>
       <div class="compare-item"><span class="compare-icon icon-check">✓</span> Textos focados em converter seguidores em clientes</div>
       <div style="margin-top: 32px; font-weight: 800; color: var(--off-white); text-align: center; font-size: 20px;">A partir de R$ 499</div>
     </div>
@@ -371,28 +377,28 @@
 </section>
 
 <section id="portfolio" style="padding-top: 0;">
-  <div class="section-label">Nosso Trabalho</div>
-  <h2 class="section-title">Qualidade que gera<br/><em>desejo.</em></h2>
+  <div class="section-label">Quem atendemos</div>
+  <h2 class="section-title">Feito para negócios<br/>que querem <em>aparecer.</em></h2>
   <div class="portfolio-grid">
     <div class="portfolio-card">
-      <div class="portfolio-icon">✨</div>
-      <h3 class="portfolio-title">Estética Médica</h3>
+      <div class="portfolio-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg></div>
+      <h3 class="portfolio-title">Salões & Barbearias</h3>
       <span class="portfolio-category">Identidade & Social Media</span>
     </div>
     <div class="portfolio-card">
-      <div class="portfolio-icon">🥂</div>
+      <div class="portfolio-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.6 4.8L18 9l-4.4 1.2L12 15l-1.6-4.8L6 9l4.4-1.2L12 3Z"/><path d="M18 15l.7 2.1L21 18l-2.3.9L18 21l-.7-2.1L15 18l2.3-.9L18 15Z"/></svg></div>
+      <h3 class="portfolio-title">Estética & Beleza</h3>
+      <span class="portfolio-category">Feed Premium & Conteúdo</span>
+    </div>
+    <div class="portfolio-card">
+      <div class="portfolio-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2v7a2 2 0 0 0 4 0V2"/><line x1="8" y1="9" x2="8" y2="22"/><path d="M18 2c-1.5 0-3 1.8-3 5s1.5 4 3 4"/><line x1="18" y1="11" x2="18" y2="22"/></svg></div>
       <h3 class="portfolio-title">Gastronomia</h3>
       <span class="portfolio-category">Gestão de Conteúdo</span>
     </div>
     <div class="portfolio-card">
-      <div class="portfolio-icon">⚖️</div>
-      <h3 class="portfolio-title">Escritórios</h3>
-      <span class="portfolio-category">Posicionamento</span>
-    </div>
-    <div class="portfolio-card">
-      <div class="portfolio-icon">🏛️</div>
-      <h3 class="portfolio-title">Arquitetura</h3>
-      <span class="portfolio-category">Branding & Feed Premium</span>
+      <div class="portfolio-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="12" y1="9" x2="12" y2="15"/><line x1="9" y1="12" x2="15" y2="12"/></svg></div>
+      <h3 class="portfolio-title">Clínicas</h3>
+      <span class="portfolio-category">Posicionamento & Autoridade</span>
     </div>
   </div>
 </section>
@@ -426,17 +432,13 @@
     <div style="display:flex;align-items:center;gap:12px;margin-top:16px;flex-wrap:wrap;">
       <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,77,0,0.1);border:1px solid rgba(255,77,0,0.3);border-radius:100px;padding:8px 16px;">
         <div style="width:8px;height:8px;border-radius:50%;background:#FF4D00;animation:pulse 2s infinite;flex-shrink:0;"></div>
-        <p style="font-size:13px;font-weight:600;color:#FF4D00;margin:0;">Valores promocionais — tempo limitado</p>
-      </div>
-      <div style="display:inline-flex;align-items:center;gap:8px;background:#0f0f0f;border:1px solid #1e1e1e;border-radius:100px;padding:8px 16px;">
-        <p style="font-size:13px;color:var(--gray);margin:0;">Encerra em:</p>
-        <p style="font-size:13px;font-weight:700;color:var(--off-white);margin:0;font-family:'Plus Jakarta Sans',sans-serif;" id="main-timer">--:--:--</p>
+        <p style="font-size:13px;font-weight:600;color:#FF4D00;margin:0;">Valores promocionais de lançamento</p>
       </div>
     </div>
     
     <div class="pricing-grid">
       <div class="plan">
-        <div class="plan-tag">🔥 Entrada acessível</div>
+        <div class="plan-tag">Entrada acessível</div>
         <div class="plan-name">Base</div>
         <div style="display:flex;align-items:center;gap:10px;margin-top:14px;">
           <div class="plan-price">R$499</div>
@@ -450,11 +452,11 @@
           <div class="plan-feature">4 stories por semana</div>
           <div class="plan-feature">Arte com identidade visual</div>
         </div>
-        <button class="plan-btn plan-btn-outline btn-open-modal" data-plan="Base">Aplicar para vaga →</button>
+        <button class="plan-btn plan-btn-outline btn-open-modal" data-plan="Base">Quero aplicar →</button>
       </div>
 
       <div class="plan featured">
-        <div class="plan-tag">⭐ Mais escolhido</div>
+        <div class="plan-tag">Mais escolhido</div>
         <div class="plan-name">Fluxo</div>
         <div style="display:flex;align-items:center;gap:10px;margin-top:14px;">
           <div class="plan-price">R$899</div>
@@ -469,11 +471,11 @@
           <div class="plan-feature">Identidade Visual Premium</div>
           <div class="plan-feature">Relatório mensal de métricas</div>
         </div>
-        <button class="plan-btn plan-btn-solid btn-open-modal" data-plan="Fluxo">Aplicar para vaga →</button>
+        <button class="plan-btn plan-btn-solid btn-open-modal" data-plan="Fluxo">Quero aplicar →</button>
       </div>
 
       <div class="plan">
-        <div class="plan-tag">🚀 Mais completo</div>
+        <div class="plan-tag">Mais completo</div>
         <div class="plan-name">Máximo</div>
         <div style="display:flex;align-items:center;gap:10px;margin-top:14px;">
           <div class="plan-price">R$1.799</div>
@@ -488,7 +490,7 @@
           <div class="plan-feature">Copy focada em conversão</div>
           <div class="plan-feature">Estratégia completa + Reunião Online</div>
         </div>
-        <button class="plan-btn plan-btn-outline btn-open-modal" data-plan="Máximo">Aplicar para vaga →</button>
+        <button class="plan-btn plan-btn-outline btn-open-modal" data-plan="Máximo">Quero aplicar →</button>
       </div>
     </div>
   </div>
@@ -499,8 +501,8 @@
     <div>
       <div class="section-label">Quem está por trás da Fluxo</div>
       <h2 class="section-title">Oi, eu sou o<br/><em>Pedro.</em></h2>
-      <p style="font-size: 16px; color: var(--gray); line-height: 1.8; margin: 0 0 24px;">Sou especialista em conteúdo e social media com foco em resultados reais para pequenos negócios. Fundei a Fluxo com um objetivo simples: fazer o seu negócio aparecer onde o seu cliente está — sem complicação e sem você precisar entender de marketing.</p>
-      <p style="font-size: 16px; color: var(--gray); line-height: 1.8; margin: 0 0 32px;">Trabalho com estratégia, criatividade e muita atenção aos detalhes. Cada cliente da Fluxo recebe atenção personalizada — não somos uma fábrica de conteúdo genérico.</p>
+      <p style="font-size: 16px; color: var(--gray); line-height: 1.8; margin: 0 0 24px;">Sou especialista em conteúdo e social media com foco em resultados reais para pequenos negócios. Fundei a Fluxo com um objetivo simples: fazer o seu negócio aparecer onde o seu cliente está, sem complicação e sem você precisar entender de marketing.</p>
+      <p style="font-size: 16px; color: var(--gray); line-height: 1.8; margin: 0 0 32px;">Trabalho com estratégia, criatividade e muita atenção aos detalhes. Cada cliente da Fluxo recebe atenção personalizada. Não somos uma fábrica de conteúdo genérico.</p>
       <div style="display: flex; gap: 32px;">
         <div><p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: var(--orange); margin: 0; line-height: 1;">+2</p><p style="font-size: 13px; color: var(--gray); margin: 4px 0 0;">anos de experiência</p></div>
         <div><p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: var(--orange); margin: 0; line-height: 1;">RJ</p><p style="font-size: 13px; color: var(--gray); margin: 4px 0 0;">baseado no Rio</p></div>
@@ -524,38 +526,6 @@
     </div>
   </div>
 </section>
-
-<div style="background: #080808; padding: 120px 0; border-top: 1px solid #111;">
-  <div style="max-width: 1200px; margin: 0 auto; padding: 0 48px;">
-    <div class="section-label" style="justify-content: center;">O que dizem nossos clientes</div>
-    <h2 class="section-title" style="text-align: center;">Resultados que<br/><em>falam por si.</em></h2>
-    <div id="depoimentos-grid">
-
-      <div style="background: #FF4D00; border: 1px solid #FF4D00; border-radius: 20px; padding: 40px; position: relative; transition: all 0.4s ease;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 24px 48px rgba(255,77,0,0.25)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="display: flex; gap: 4px; margin-bottom: 24px;">
-          <span style="color: #fff; font-size: 18px;">★★★★★</span>
-        </div>
-        <p style="font-size: 16px; color: #fff; line-height: 1.8; margin: 0 0 32px; font-style: italic;">"Eu não entendia nada de redes sociais. Com a Fluxo não preciso me preocupar com absolutamente nada. O resultado de visualizações e novos clientes no salão apareceu no primeiro mês."</p>
-        <div style="display: flex; align-items: center; gap: 16px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.2);">
-          <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><p style="font-size: 20px; margin: 0;">💈</p></div>
-          <div><p style="font-size: 15px; font-weight: 700; color: #fff; margin: 0;">Barbearia do Zé</p><p style="font-size: 13px; color: rgba(255,255,255,0.8); margin: 4px 0 0;">Barbearia · Rio de Janeiro</p></div>
-        </div>
-      </div>
-
-      <div style="background: #0f0f0f; border: 1px solid #1e1e1e; border-radius: 20px; padding: 40px; position: relative; transition: all 0.4s ease;" onmouseover="this.style.borderColor='rgba(255,77,0,0.4)';this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 40px rgba(0,0,0,0.5)'" onmouseout="this.style.borderColor='#1e1e1e';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="display: flex; gap: 4px; margin-bottom: 24px;">
-          <span style="color: #FF4D00; font-size: 18px;">★★★★★</span>
-        </div>
-        <p style="font-size: 16px; color: var(--off-white); line-height: 1.8; margin: 0 0 32px; font-style: italic;">"Minha clínica tinha um Instagram completamente parado. Hoje temos posts semanais lindos, pacientes novos chegando e uma identidade que representa a qualidade do nosso trabalho."</p>
-        <div style="display: flex; align-items: center; gap: 16px; padding-top: 24px; border-top: 1px solid #1e1e1e;">
-          <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(255,77,0,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><p style="font-size: 20px; margin: 0;">🦷</p></div>
-          <div><p style="font-size: 15px; font-weight: 700; color: var(--off-white); margin: 0;">Clínica Sorrir Bem</p><p style="font-size: 13px; color: var(--gray); margin: 4px 0 0;">Odontologia · Rio de Janeiro</p></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
 
 <section id="faq">
   <div class="section-label">Dúvidas frequentes</div>
@@ -607,7 +577,7 @@
         <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 600; color: var(--off-white); margin: 0;">Atendem qualquer tipo de negócio?</p>
         <span class="faq-icon" style="font-size: 24px; font-weight: 300; color: #FF4D00; flex-shrink: 0; margin-left: 16px;">+</span>
       </div>
-      <p class="faq-ans" style="display: none; font-size: 15px; color: var(--gray); line-height: 1.8; margin: 20px 0 0;">Somos especializados em negócios locais e prestadores de serviços: clínicas, advogados, restaurantes, salões e profissionais liberais. Focamos em negócios que precisam captar clientes reais para vender mais.</p>
+      <p class="faq-ans" style="display: none; font-size: 15px; color: var(--gray); line-height: 1.8; margin: 20px 0 0;">Somos especializados em negócios locais: salões, barbearias, clínicas, estética, restaurantes e profissionais liberais. Focamos em negócios que precisam captar clientes reais para vender mais.</p>
     </div>
     
   </div>
@@ -631,13 +601,12 @@
       <h5>Contato</h5>
       <p>contato@agenciafluxo.com.br</p>
       <p>WhatsApp: (21) 97535-9273</p>
-      <p>CNPJ: 00.000.000/0001-00</p>
     </div>
     <div class="footer-col">
       <h5>Links Úteis</h5>
       <a href="#">Política de Privacidade</a>
       <a href="#">Termos de Uso</a>
-      <a href="https://www.instagram.com/fluxo_agencia_/" target="_blank">Instagram (@fluxo_agencia_)</a>
+      <a href="https://www.instagram.com/fluxo_agencia_/" target="_blank" rel="noopener">Instagram (@fluxo_agencia_)</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -655,7 +624,7 @@
     </div>
     <div class="form-group">
       <label>Qual o seu nicho de atuação?</label>
-      <input type="text" id="leadNiche" placeholder="Ex: Clínica Odontológica, Restaurante..." required>
+      <input type="text" id="leadNiche" placeholder="Ex: Salão, Barbearia, Clínica, Restaurante..." required>
     </div>
     <div class="form-group">
       <label>Qual o seu maior desafio hoje?</label>
@@ -668,13 +637,13 @@
       </select>
     </div>
     <div class="form-group">
-      <label>Qual o faturamento mensal do negócio?</label>
+      <label>Faturamento mensal do negócio (opcional)</label>
       <select id="leadRevenue">
-        <option value="" disabled selected>Selecione uma opção...</option>
+        <option value="" selected>Prefiro não informar</option>
         <option value="Até R$10k">Até R$ 10.000</option>
         <option value="De R$10k a R$50k">De R$ 10.000 a R$ 50.000</option>
         <option value="Acima de R$50k">Acima de R$ 50.000</option>
-        <option value="Ainda não faturou">Começando agora</option>
+        <option value="Começando agora">Começando agora</option>
       </select>
     </div>
     <button class="btn-submit" onclick="sendToWhatsApp()">Enviar e Falar no WhatsApp →</button>
@@ -737,33 +706,6 @@
     observer.observe(el); 
   });
 
-  function startTimer() {
-    const key = 'fluxo_timer_v4';
-    let end = sessionStorage.getItem(key);
-    if (!end) {
-      end = Date.now() + 48 * 60 * 60 * 1000;
-      sessionStorage.setItem(key, end);
-    }
-    end = parseInt(end);
-    function fmt(n){ return String(n).padStart(2,'0'); }
-    function update() {
-      let diff = end - Date.now();
-      if (diff <= 0) {
-        end = Date.now() + 48 * 60 * 60 * 1000;
-        sessionStorage.setItem(key, end);
-        diff = end - Date.now();
-      }
-      const h = Math.floor(diff / 3600000);
-      const m = Math.floor((diff % 3600000) / 60000);
-      const s = Math.floor((diff % 60000) / 1000);
-      const elMain = document.getElementById('main-timer');
-      if (elMain) elMain.textContent = `${fmt(h)}:${fmt(m)}:${fmt(s)}`;
-      setTimeout(update, 1000);
-    }
-    update();
-  }
-  startTimer();
-
   const modal = document.getElementById('leadModal');
   const btnClose = document.getElementById('closeModal');
   let selectedPlan = '';
@@ -771,7 +713,7 @@
   document.querySelectorAll('.btn-open-modal').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      selectedPlan = btn.getAttribute('data-plan') || 'Aplicação Geral (CTA Final)';
+      selectedPlan = btn.getAttribute('data-plan') || 'Aplicação Geral';
       modal.classList.add('active');
     });
   });
@@ -786,12 +728,15 @@
     const pain = document.getElementById('leadPain').value;
     const revenue = document.getElementById('leadRevenue').value;
 
-    if(!niche || !pain || !revenue) {
-      alert('Por favor, preencha todos os campos do formulário antes de enviar.');
+    if(!niche || !pain) {
+      alert('Por favor, preencha o nicho e o seu maior desafio antes de enviar.');
       return;
     }
 
-    const text = `Olá! Fiz uma aplicação no site da Fluxo.\n\n*Interesse:* ${selectedPlan}\n*Nicho:* ${niche}\n*Maior desafio:* ${pain}\n*Faturamento:* ${revenue}\n\nGostaria de entender se meu negócio tem o perfil para a agência.`;
+    let text = `Olá! Fiz uma aplicação no site da Fluxo.\n\n*Interesse:* ${selectedPlan}\n*Nicho:* ${niche}\n*Maior desafio:* ${pain}`;
+    if (revenue) text += `\n*Faturamento:* ${revenue}`;
+    text += `\n\nGostaria de entender se meu negócio tem o perfil para a agência.`;
+
     const encodedText = encodeURIComponent(text);
     const whatsappUrl = `https://wa.me/5521975359273?text=${encodedText}`;
     
