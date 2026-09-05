@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monte seu pacote · Fluxo</title>
+<meta name="description" content="Monte um pacote de conteúdo e social media sob medida para o seu negócio. Escolha só o que precisa e veja o valor na hora.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fluxoagencia.vercel.app/montar.html">
+<meta property="og:title" content="Monte seu pacote · Fluxo">
+<meta property="og:description" content="Escolha só o que o seu negócio precisa e veja o valor na hora. Sem fidelidade.">
+<meta property="og:image" content="https://fluxoagencia.vercel.app/images/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="images/topo-site.png">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --orange: #FF4D00; --black: #0a0a0a; --off-white: #f2f0eb; --gray: #888880; }
+  html { scroll-behavior: smooth; }
+  body { background: #0d0d0d; color: var(--off-white); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; background: rgba(10,10,10,0.8); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.03); }
+  .nav-logo { display: flex; align-items: center; text-decoration: none; }
+  .nav-back { color: var(--off-white); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; text-decoration: none; opacity: 0.7; transition: opacity 0.3s ease; }
+  .nav-back:hover { opacity: 1; color: var(--orange); }
+
+  .fx-builder { padding: 160px 0 120px; }
+  .fx-b-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+  .fx-b-label { font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+  .fx-b-label::before { content: ''; width: 24px; height: 1px; background: var(--orange); }
+  .fx-b-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(34px, 5vw, 60px); font-weight: 800; line-height: 1.05; letter-spacing: -2px; color: var(--off-white); margin-bottom: 16px; }
+  .fx-b-title em { font-style: normal; color: var(--orange); }
+  .fx-b-sub { font-size: 16px; color: var(--gray); line-height: 1.6; max-width: 520px; margin-bottom: 56px; }
+  .fx-b-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: start; }
+  .fx-b-block { margin-bottom: 32px; }
+  .fx-b-block-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-bottom: 16px; }
+  .fx-b-item { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: #0a0a0a; border: 1px solid #1e1e1e; border-radius: 14px; padding: 20px 24px; margin-bottom: 12px; transition: border-color 0.3s ease, background 0.3s ease; }
+  .fx-b-item:hover { border-color: rgba(255,77,0,0.35); }
+  .fx-b-item.fx-b-active { border-color: var(--orange); background: #0f0f0f; }
+  .fx-b-item-text { display: flex; flex-direction: column; gap: 4px; }
+  .fx-b-item-name { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; font-weight: 700; color: var(--off-white); }
+  .fx-b-item-desc { font-size: 13px; color: var(--gray); }
+  .fx-b-stepper { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+  .fx-b-stepper button { width: 34px; height: 34px; border-radius: 50%; border: 1px solid #333; background: transparent; color: var(--off-white); font-size: 20px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; }
+  .fx-b-stepper button:hover { border-color: var(--orange); color: var(--orange); }
+  .fx-b-count { min-width: 22px; text-align: center; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 700; color: var(--off-white); }
+  .fx-b-toggle { cursor: pointer; }
+  .fx-b-toggle input { display: none; }
+  .fx-b-switch { position: relative; width: 48px; height: 27px; border-radius: 100px; background: #2a2a2a; flex-shrink: 0; transition: background 0.3s ease; }
+  .fx-b-switch::after { content: ''; position: absolute; top: 3px; left: 3px; width: 21px; height: 21px; border-radius: 50%; background: var(--off-white); transition: transform 0.3s ease; }
+  .fx-b-toggle input:checked + .fx-b-switch { background: var(--orange); }
+  .fx-b-toggle input:checked + .fx-b-switch::after { transform: translateX(21px); }
+  .fx-b-summary-card { background: #0a0a0a; border: 1px solid #1e1e1e; border-radius: 24px; padding: 36px; position: sticky; top: 100px; }
+  .fx-b-summary-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 800; color: var(--off-white); margin-bottom: 24px; }
+  .fx-b-summary-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; min-height: 60px; }
+  .fx-b-empty { font-size: 14px; color: var(--gray); line-height: 1.6; }
+  .fx-b-line { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 14px; color: var(--off-white); }
+  .fx-b-line span:last-child { color: var(--gray); flex-shrink: 0; }
+  .fx-b-total-row { display: flex; align-items: baseline; justify-content: space-between; padding-top: 24px; border-top: 1px solid #1e1e1e; margin-bottom: 8px; }
+  .fx-b-total-row > span:first-child { font-size: 14px; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; }
+  .fx-b-total { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 34px; font-weight: 800; color: var(--orange); letter-spacing: -1px; }
+  .fx-b-total small { font-size: 15px; color: var(--gray); font-weight: 500; margin-left: 2px; }
+  .fx-b-note { font-size: 12px; color: #666; line-height: 1.5; margin: 12px 0 24px; }
+  .fx-b-cta { width: 100%; padding: 18px; border-radius: 100px; background: var(--orange); color: #fff; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; border: none; cursor: pointer; transition: all 0.3s ease; }
+  .fx-b-cta:hover { background: #e64400; transform: translateY(-2px); box-shadow: 0 12px 28px rgba(255,77,0,0.3); }
+
+  footer { border-top: 1px solid #1a1a1a; padding: 40px 48px; text-align: center; }
+  footer p { font-size: 13px; color: var(--gray); }
+  footer a { color: var(--gray); text-decoration: none; }
+  footer a:hover { color: var(--orange); }
+
+  @media (max-width: 992px) { .fx-b-grid { grid-template-columns: 1fr; } .fx-b-summary-card { position: static; } }
+  @media (max-width: 768px) { nav { padding: 16px 20px; } .fx-builder { padding: 120px 0 80px; } .fx-b-inner { padding: 0 24px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo-branca.png" alt="Fluxo Agência" style="height: 28px; width: auto; object-fit: contain;">
+  </a>
+  <a href="index.html#pacotes" class="nav-back">← Ver planos prontos</a>
+</nav>
+
+<div class="fx-builder" id="montar">
+  <div class="fx-b-inner">
+    <div class="fx-b-label">Monte seu pacote</div>
+    <h2 class="fx-b-title">Monte o plano do <em>seu jeito.</em></h2>
+    <p class="fx-b-sub">Escolha só o que o seu negócio precisa. O valor aparece na hora, sem fidelidade e sem surpresa.</p>
+
+    <div class="fx-b-grid">
+      <div class="fx-b-options">
+
+        <div class="fx-b-block">
+          <h4 class="fx-b-block-title">Conteúdo</h4>
+
+          <div class="fx-b-item" data-type="step" data-key="posts">
+            <div class="fx-b-item-text">
+              <span class="fx-b-item-name">Posts no feed</span>
+              <span class="fx-b-item-desc">artes por mês</span>
+            </div>
+            <div class="fx-b-stepper">
+              <button type="button" class="fx-b-minus" aria-label="menos">−</button>
+              <span class="fx-b-count" data-count>0</span>
+              <button type="button" class="fx-b-plus" aria-label="mais">+</button>
+            </div>
+          </div>
+
+          <div class="fx-b-item" data-type="step" data-key="reels">
+            <div class="fx-b-item-text">
+              <span class="fx-b-item-name">Reels</span>
+              <span class="fx-b-item-desc">vídeos por mês</span>
+            </div>
+            <div class="fx-b-stepper">
+              <button type="button" class="fx-b-minus" aria-label="menos">−</button>
+              <span class="fx-b-count" data-count>0</span>
+              <button type="button" class="fx-b-plus" aria-label="mais">+</button>
+            </div>
+          </div>
+
+          <div class="fx-b-item" data-type="step" data-key="stories">
+            <div class="fx-b-item-text">
+              <span class="fx-b-item-name">Stories</span>
+              <span class="fx-b-item-desc">por semana</span>
+            </div>
+            <div class="fx-b-stepper">
+              <button type="button" class="fx-b-minus" aria-label="menos">−</button>
+              <span class="fx-b-count" data-count>0</span>
+              <button type="button" class="fx-b-plus" aria-label="mais">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="fx-b-block">
+          <h4 class="fx-b-block-title">Serviços</h4>
+
+          <label class="fx-b-item fx-b-toggle" data-type="toggle" data-key="gestao">
+            <div class="fx-b-item-text">
+              <span class="fx-b-item-name">Gestão e publicação</span>
+              <span class="fx-b-item-desc">agendamos e postamos por você</span>
+            </div>
+            <input type="checkbox"><span class="fx-b-switch"></span>
+          </label>
+
+          <label class="fx-b-item fx-b-toggle" data-type="toggle" data-key="identidade">
+            <div class="fx-b-item-text">
+              <span class="fx-b-item-name">Identidade visual premium</span>
+              <span class="fx-b-item-desc">padrão de marca em todos os posts</span>
+            </div>
+            <input type="checkbox"><span class="fx-b-switch"></span>
+          </label>
+
+          <label class="fx-b-item fx-b-toggle" data-type="toggle" data-key="copy">
+            <div class="fx-b-item-text">
+              <span class="fx-b-item-name">Copy e legendas estratégicas</span>
+              <span class="fx-b-item-desc">textos que geram ação de venda</span>
+            </div>
+            <input type="checkbox"><span class="fx-b-switch"></span>
+          </label>
+
+          <label class="fx-b-item fx-b-toggle" data-type="toggle" data-key="relatorio">
+            <div class="fx-b-item-text">
+              <span class="fx-b-item-name">Relatório mensal de métricas</span>
+              <span class="fx-b-item-desc">o que cresceu e os próximos passos</span>
+            </div>
+            <input type="checkbox"><span class="fx-b-switch"></span>
+          </label>
+
+          <label class="fx-b-item fx-b-toggle" data-type="toggle" data-key="trafego">
+            <div class="fx-b-item-text">
+              <span class="fx-b-item-name">Gestão de tráfego pago</span>
+              <span class="fx-b-item-desc">campanhas no Instagram e Facebook</span>
+            </div>
+            <input type="checkbox"><span class="fx-b-switch"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="fx-b-summary">
+        <div class="fx-b-summary-card">
+          <p class="fx-b-summary-title">Seu pacote</p>
+          <div class="fx-b-summary-list" id="fx-b-list">
+            <p class="fx-b-empty">Selecione os itens ao lado para montar o seu plano.</p>
+          </div>
+          <div class="fx-b-total-row">
+            <span>Total estimado</span>
+            <span class="fx-b-total"><span id="fx-b-total">R$ 0</span><small>/mês</small></span>
+          </div>
+          <p class="fx-b-note">Valor sem fidelidade. Estimativa; o valor final é confirmado na conversa.</p>
+          <button type="button" class="fx-b-cta" id="fx-b-cta">Fechar meu pacote no WhatsApp →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Fluxo Agência de Conteúdo · <a href="index.html">Voltar para o início</a></p>
+</footer>
+
+<script>
+(function () {
+  // ===========================================================
+  // AJUSTE OS PREÇOS AQUI (valores mensais em R$).
+  // Steppers = preço por unidade. Toggles = preço fixo do serviço.
+  // Os números abaixo são EXEMPLO, troque pelos seus reais.
+  // ===========================================================
+  var PRECOS = {
+    posts:      35,   // por post no feed
+    reels:      90,   // por reel
+    stories:    40,   // por story/semana
+    gestao:     150,  // gestão e publicação
+    identidade: 120,  // identidade visual premium
+    copy:       100,  // copy e legendas
+    relatorio:  80,   // relatório mensal
+    trafego:    250   // gestão de tráfego pago
+  };
+  var NOMES = {
+    posts: 'Posts no feed', reels: 'Reels', stories: 'Stories/semana',
+    gestao: 'Gestão e publicação', identidade: 'Identidade visual premium',
+    copy: 'Copy e legendas', relatorio: 'Relatório mensal', trafego: 'Tráfego pago'
+  };
+  var WHATS = '5521975359273';
+
+  var estado = { posts: 0, reels: 0, stories: 0, gestao: false, identidade: false, copy: false, relatorio: false, trafego: false };
+  var root = document.getElementById('montar');
+  if (!root) return;
+
+  function fmt(n) { return 'R$ ' + n.toLocaleString('pt-BR'); }
+
+  function render() {
+    var lista = document.getElementById('fx-b-list');
+    var linhas = [];
+    var total = 0;
+    ['posts','reels','stories'].forEach(function (k) {
+      if (estado[k] > 0) {
+        var v = estado[k] * PRECOS[k]; total += v;
+        linhas.push('<div class="fx-b-line"><span>' + estado[k] + 'x ' + NOMES[k] + '</span><span>' + fmt(v) + '</span></div>');
+      }
+    });
+    ['gestao','identidade','copy','relatorio','trafego'].forEach(function (k) {
+      if (estado[k]) {
+        total += PRECOS[k];
+        linhas.push('<div class="fx-b-line"><span>' + NOMES[k] + '</span><span>' + fmt(PRECOS[k]) + '</span></div>');
+      }
+    });
+    lista.innerHTML = linhas.length ? linhas.join('') : '<p class="fx-b-empty">Selecione os itens ao lado para montar o seu plano.</p>';
+    document.getElementById('fx-b-total').textContent = fmt(total);
+  }
+
+  root.querySelectorAll('[data-type="step"]').forEach(function (item) {
+    var key = item.getAttribute('data-key');
+    var countEl = item.querySelector('[data-count]');
+    item.querySelector('.fx-b-plus').addEventListener('click', function () {
+      estado[key]++; countEl.textContent = estado[key];
+      item.classList.toggle('fx-b-active', estado[key] > 0); render();
+    });
+    item.querySelector('.fx-b-minus').addEventListener('click', function () {
+      if (estado[key] > 0) estado[key]--; countEl.textContent = estado[key];
+      item.classList.toggle('fx-b-active', estado[key] > 0); render();
+    });
+  });
+
+  root.querySelectorAll('[data-type="toggle"]').forEach(function (item) {
+    var key = item.getAttribute('data-key');
+    var input = item.querySelector('input');
+    input.addEventListener('change', function () {
+      estado[key] = input.checked;
+      item.classList.toggle('fx-b-active', input.checked); render();
+    });
+  });
+
+  document.getElementById('fx-b-cta').addEventListener('click', function () {
+    var linhas = [], total = 0;
+    ['posts','reels','stories'].forEach(function (k) { if (estado[k] > 0) { total += estado[k]*PRECOS[k]; linhas.push('• ' + estado[k] + 'x ' + NOMES[k]); } });
+    ['gestao','identidade','copy','relatorio','trafego'].forEach(function (k) { if (estado[k]) { total += PRECOS[k]; linhas.push('• ' + NOMES[k]); } });
+    if (!linhas.length) { alert('Selecione pelo menos um item para montar o seu pacote.'); return; }
+    var texto = 'Olá! Montei meu pacote no site da Fluxo:\n\n' + linhas.join('\n') + '\n\nTotal estimado: ' + fmt(total) + '/mês (sem fidelidade).\n\nGostaria de fechar ou ajustar esse plano.';
+    window.open('https://wa.me/' + WHATS + '?text=' + encodeURIComponent(texto), '_blank');
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
